@@ -1,255 +1,173 @@
 <?php
 /**
- * Vista: Página Principal Pública
- * Página de inicio para usuarios no autenticados
+ * Vista: Página de Inicio (Home)
+ * MODIFICADO: Las imágenes se cargan desde URLs externas
  */
 
 $pageTitle = 'Inicio - AutoPartes Pro';
-$hideSearch = true;
+$defaultImage = 'https://via.placeholder.com/300x300?text=Sin+Imagen';
 
 require_once VIEWS_PATH . '/layouts/header.php';
 ?>
 
 <!-- Hero Section -->
-<div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
-    <div class="container mx-auto px-4 py-20">
-        <div class="max-w-3xl mx-auto text-center">
-            <h1 class="text-5xl font-bold mb-6">
+<section class="bg-gradient-to-r from-indigo-600 to-purple-700 text-white py-16">
+    <div class="container mx-auto px-4">
+        <div class="max-w-3xl">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">
                 Encuentra las Autopartes que Necesitas
             </h1>
-            <p class="text-xl mb-8 text-indigo-100">
-                El mejor inventario de autopartes usadas con calidad garantizada
+            <p class="text-xl text-indigo-100 mb-8">
+                El mejor inventario de repuestos para tu vehículo. Calidad garantizada y envíos a todo Panamá.
             </p>
-            
-            <!-- Buscador Principal -->
-            <div class="max-w-2xl mx-auto">
-                <form action="<?= BASE_URL ?>/index.php" method="GET" class="flex gap-2">
-                    <input type="hidden" name="module" value="publico">
-                    <input type="hidden" name="action" value="catalogo">
-                    <input 
-                        type="text" 
-                        name="buscar" 
-                        placeholder="Busca por marca, modelo o tipo de pieza..."
-                        class="flex-1 px-6 py-4 rounded-lg text-gray-900 text-lg focus:outline-none focus:ring-4 focus:ring-white/50"
-                    >
-                    <button 
-                        type="submit"
-                        class="bg-white text-indigo-600 px-8 py-4 rounded-lg font-semibold hover:bg-indigo-50 transition"
-                    >
-                        <i class="fas fa-search mr-2"></i>
-                        Buscar
-                    </button>
-                </form>
-            </div>
-            
-            <!-- Quick Links -->
-            <div class="mt-8 flex justify-center gap-4 flex-wrap">
+            <div class="flex flex-wrap gap-4">
                 <a href="<?= BASE_URL ?>/index.php?module=publico&action=catalogo" 
-                   class="bg-white/20 hover:bg-white/30 px-6 py-2 rounded-full text-sm font-medium transition">
-                    Ver Catálogo Completo
+                   class="bg-white text-indigo-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg transition">
+                    <i class="fas fa-search mr-2"></i>Ver Catálogo
                 </a>
                 <?php if (!isAuthenticated()): ?>
-                <a href="<?= BASE_URL ?>/index.php?module=auth&action=registro" 
-                   class="bg-white/20 hover:bg-white/30 px-6 py-2 rounded-full text-sm font-medium transition">
-                    Crear Cuenta
+                <a href="<?= BASE_URL ?>/index.php?module=auth&action=register" 
+                   class="bg-transparent border-2 border-white hover:bg-white hover:text-indigo-600 font-bold py-3 px-8 rounded-lg transition">
+                    <i class="fas fa-user-plus mr-2"></i>Registrarse
                 </a>
                 <?php endif; ?>
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<!-- Categorías Destacadas -->
-<div class="container mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold text-gray-800 mb-2 text-center">
-        Explora por Categoría
-    </h2>
-    <p class="text-gray-600 text-center mb-12">
-        Encuentra exactamente lo que buscas navegando por categorías
-    </p>
-    
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<!-- Categorías -->
+<section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">
+            <i class="fas fa-th-large text-indigo-600 mr-2"></i>
+            Categorías
+        </h2>
+        
         <?php if (!empty($categorias)): ?>
-            <?php 
-            $iconos = [
-                'Motor' => 'fa-cog',
-                'Carrocería' => 'fa-car-side',
-                'Vidrios' => 'fa-border-all',
-                'Eléctrico' => 'fa-bolt',
-                'Interior' => 'fa-couch',
-                'Suspensión' => 'fa-compress-arrows-alt',
-                'Frenos' => 'fa-circle-notch',
-                'Transmisión' => 'fa-cogs',
-                'default' => 'fa-wrench'
-            ];
-            foreach ($categorias as $categoria): 
-                $icono = $iconos[$categoria['nombre']] ?? $iconos['default'];
-            ?>
-                <a href="<?= BASE_URL ?>/index.php?module=publico&action=categoria&id=<?= $categoria['id'] ?>" 
-                   class="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all p-6 text-center transform hover:-translate-y-1">
-                    <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center">
-                        <i class="fas <?= $icono ?> text-white text-3xl"></i>
-                    </div>
-                    
-                    <h3 class="font-bold text-gray-800 group-hover:text-indigo-600 transition">
-                        <?= htmlspecialchars($categoria['nombre']) ?>
-                    </h3>
-                    
-                    <p class="text-sm text-gray-500 mt-2">
-                        <?= $categoria['total_autopartes'] ?? 0 ?> productos
-                    </p>
-                </a>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <?php foreach ($categorias as $cat): ?>
+            <a href="<?= BASE_URL ?>/index.php?module=publico&action=categoria&id=<?= $cat['id'] ?>" 
+               class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all p-6 text-center group">
+                <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-indigo-600 transition">
+                    <i class="fas fa-cog text-2xl text-indigo-600 group-hover:text-white transition"></i>
+                </div>
+                <h3 class="font-semibold text-gray-800 group-hover:text-indigo-600 transition">
+                    <?= htmlspecialchars($cat['nombre']) ?>
+                </h3>
+                <p class="text-sm text-gray-500 mt-1">
+                    <?= $cat['total_autopartes'] ?> productos
+                </p>
+            </a>
             <?php endforeach; ?>
+        </div>
         <?php else: ?>
-            <div class="col-span-full text-center py-8 text-gray-500">
-                <i class="fas fa-tags text-5xl mb-4 opacity-50"></i>
-                <p>No hay categorías disponibles en este momento</p>
-            </div>
+        <p class="text-center text-gray-500">No hay categorías disponibles</p>
         <?php endif; ?>
     </div>
-    
-    <div class="text-center mt-8">
-        <a href="<?= BASE_URL ?>/index.php?module=publico&action=catalogo" 
-           class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-lg font-semibold transition">
-            Ver Todas las Categorías
-            <i class="fas fa-arrow-right ml-2"></i>
-        </a>
-    </div>
-</div>
+</section>
 
-<!-- Autopartes Destacadas -->
-<?php if (!empty($destacadas)): ?>
-<div class="bg-gray-50 py-16">
+<!-- Productos Destacados -->
+<section class="py-12">
     <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-gray-800 mb-2 text-center">
-            Últimas Autopartes Agregadas
-        </h2>
-        <p class="text-gray-600 text-center mb-12">
-            Descubre las piezas más recientes en nuestro inventario
-        </p>
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="text-3xl font-bold text-gray-800">
+                <i class="fas fa-star text-yellow-500 mr-2"></i>
+                Productos Destacados
+            </h2>
+            <a href="<?= BASE_URL ?>/index.php?module=publico&action=catalogo" 
+               class="text-indigo-600 hover:text-indigo-800 font-semibold">
+                Ver todos <i class="fas fa-arrow-right ml-1"></i>
+            </a>
+        </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <?php foreach ($destacadas as $autoparte): ?>
-                <a href="<?= BASE_URL ?>/index.php?module=publico&action=detalle&id=<?= $autoparte['id'] ?>" 
-                   class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden group">
-                    
-                    <!-- Imagen -->
-                    <div class="relative h-48 bg-gray-200 overflow-hidden">
-                        <?php if ($autoparte['imagen_thumb']): ?>
-                            <img src="<?= UPLOADS_URL ?>/<?= htmlspecialchars($autoparte['imagen_thumb']) ?>" 
-                                 alt="<?= htmlspecialchars($autoparte['nombre']) ?>"
-                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+        <?php if (!empty($destacadas)): ?>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <?php foreach ($destacadas as $producto): ?>
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all group">
+                <a href="<?= BASE_URL ?>/index.php?module=publico&action=detalle&id=<?= $producto['id'] ?>">
+                    <div class="relative overflow-hidden h-48">
+                        <!-- IMAGEN DESDE URL EXTERNA -->
+                        <?php if (!empty($producto['imagen_thumb'])): ?>
+                            <img src="<?= htmlspecialchars($producto['imagen_thumb']) ?>" 
+                                 alt="<?= htmlspecialchars($producto['nombre']) ?>"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                 onerror="this.onerror=null; this.src='<?= $defaultImage ?>';">
                         <?php else: ?>
-                            <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-300 to-gray-400">
-                                <i class="fas fa-car text-white text-5xl opacity-50"></i>
+                            <div class="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                                <i class="fas fa-car text-gray-400 text-4xl"></i>
                             </div>
                         <?php endif; ?>
                         
-                        <!-- Badge de Categoría -->
-                        <span class="absolute top-2 right-2 bg-indigo-600 text-white text-xs px-3 py-1 rounded-full">
-                            <?= htmlspecialchars($autoparte['categoria_nombre'] ?? 'Sin categoría') ?>
+                        <span class="absolute top-3 left-3 bg-indigo-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                            <?= htmlspecialchars($producto['categoria_nombre'] ?? 'Sin categoría') ?>
                         </span>
+                        
+                        <?php if ($producto['stock'] <= 0): ?>
+                        <span class="absolute top-3 right-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                            Agotado
+                        </span>
+                        <?php endif; ?>
                     </div>
                     
-                    <!-- Información -->
                     <div class="p-4">
-                        <h3 class="font-bold text-gray-800 mb-2 group-hover:text-indigo-600 transition line-clamp-1">
-                            <?= htmlspecialchars($autoparte['nombre']) ?>
+                        <h3 class="font-semibold text-gray-800 group-hover:text-indigo-600 transition line-clamp-2 mb-2">
+                            <?= htmlspecialchars($producto['nombre']) ?>
                         </h3>
-                        
-                        <p class="text-sm text-gray-600 mb-3">
-                            <?= htmlspecialchars($autoparte['marca']) ?> <?= htmlspecialchars($autoparte['modelo']) ?> (<?= $autoparte['anio'] ?>)
+                        <p class="text-sm text-gray-500 mb-2">
+                            <?= htmlspecialchars($producto['marca']) ?> <?= htmlspecialchars($producto['modelo']) ?>
                         </p>
-                        
                         <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold text-indigo-600">
-                                $<?= number_format($autoparte['precio'], 2) ?>
+                            <span class="text-xl font-bold text-indigo-600">
+                                $<?= number_format($producto['precio'], 2) ?>
                             </span>
-                            <?php if ($autoparte['stock'] > 0): ?>
-                                <span class="text-sm text-green-600">
-                                    <i class="fas fa-check-circle mr-1"></i>Disponible
-                                </span>
-                            <?php else: ?>
-                                <span class="text-sm text-red-600">
-                                    <i class="fas fa-times-circle mr-1"></i>Agotado
-                                </span>
+                            <?php if ($producto['stock'] > 0): ?>
+                            <span class="text-xs text-green-600">
+                                <i class="fas fa-check-circle"></i> Disponible
+                            </span>
                             <?php endif; ?>
                         </div>
                     </div>
                 </a>
+            </div>
             <?php endforeach; ?>
         </div>
-        
-        <div class="text-center mt-8">
-            <a href="<?= BASE_URL ?>/index.php?module=publico&action=catalogo" 
-               class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-lg font-semibold transition">
-                Ver Más Autopartes
-                <i class="fas fa-arrow-right ml-2"></i>
-            </a>
+        <?php else: ?>
+        <div class="text-center py-12 bg-gray-50 rounded-xl">
+            <i class="fas fa-box-open text-gray-300 text-6xl mb-4"></i>
+            <p class="text-gray-500">No hay productos destacados disponibles</p>
         </div>
+        <?php endif; ?>
     </div>
-</div>
-<?php endif; ?>
+</section>
 
-<!-- Características -->
-<div class="container mx-auto px-4 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="text-center">
-            <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i class="fas fa-shield-alt text-indigo-600 text-2xl"></i>
+<!-- Beneficios -->
+<section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-shipping-fast text-2xl text-indigo-600"></i>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">Envíos a Todo Panamá</h3>
+                <p class="text-gray-600 text-sm">Entregamos en todo el territorio nacional</p>
             </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-2">Calidad Garantizada</h3>
-            <p class="text-gray-600">
-                Todas nuestras autopartes pasan por inspección de calidad antes de ser publicadas
-            </p>
-        </div>
-        
-        <div class="text-center">
-            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i class="fas fa-truck text-green-600 text-2xl"></i>
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-shield-alt text-2xl text-green-600"></i>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">Garantía de Calidad</h3>
+                <p class="text-gray-600 text-sm">Todos nuestros productos tienen garantía</p>
             </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-2">Envío Disponible</h3>
-            <p class="text-gray-600">
-                Contamos con servicio de envío a todo el país para tu comodidad
-            </p>
-        </div>
-        
-        <div class="text-center">
-            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i class="fas fa-headset text-purple-600 text-2xl"></i>
+            <div class="text-center">
+                <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-headset text-2xl text-yellow-600"></i>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">Soporte 24/7</h3>
+                <p class="text-gray-600 text-sm">Atención al cliente siempre disponible</p>
             </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-2">Soporte 24/7</h3>
-            <p class="text-gray-600">
-                Nuestro equipo está disponible para ayudarte en cualquier momento
-            </p>
         </div>
     </div>
-</div>
-
-<!-- Call to Action -->
-<div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-16">
-    <div class="container mx-auto px-4 text-center">
-        <h2 class="text-4xl font-bold mb-4">
-            ¿Listo para Encontrar tu Autoparte?
-        </h2>
-        <p class="text-xl mb-8 text-indigo-100">
-            Únete a miles de clientes satisfechos que ya encontraron lo que buscaban
-        </p>
-        <div class="flex justify-center gap-4 flex-wrap">
-            <?php if (!isAuthenticated()): ?>
-            <a href="<?= BASE_URL ?>/index.php?module=auth&action=registro" 
-               class="bg-white text-indigo-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-indigo-50 transition inline-block">
-                <i class="fas fa-user-plus mr-2"></i>
-                Crear Cuenta Gratis
-            </a>
-            <?php endif; ?>
-            <a href="<?= BASE_URL ?>/index.php?module=publico&action=catalogo" 
-               class="bg-white/20 hover:bg-white/30 text-white px-8 py-4 rounded-lg font-bold text-lg transition inline-block border-2 border-white">
-                <i class="fas fa-search mr-2"></i>
-                Explorar Catálogo
-            </a>
-        </div>
-    </div>
-</div>
+</section>
 
 <?php require_once VIEWS_PATH . '/layouts/footer.php'; ?>

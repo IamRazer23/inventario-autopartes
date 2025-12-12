@@ -1060,3 +1060,20 @@
 [2025-12-12 09:33:30] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
 [2025-12-12 09:33:30] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
 [2025-12-12 09:33:49] [CRITICAL] Exception: Class "Database" not found en C:\xampp\htdocs\inventario-autopartes\controllers\OperadorController.php línea 25
+[2025-12-12 16:45:04] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 38
+[2025-12-12 16:45:16] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 38
+[2025-12-12 16:45:20] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 38
+[2025-12-12 16:48:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 53
+[2025-12-12 16:48:10] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 53
+[2025-12-12 16:48:26] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 53
+[2025-12-12 16:49:20] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 53
+[2025-12-12 16:50:33] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 53
+[2025-12-12 17:05:02] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 17:05:10] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 17:05:29] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 17:12:11] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 17:14:47] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 17:20:42] [ERROR] Error: 8192 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 37
+[2025-12-12 17:20:47] [ERROR] Error: 8192 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 37
+[2025-12-12 17:21:17] [ERROR] Error: 8192 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 37
+[2025-12-12 17:21:20] [ERROR] Error: 8192 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 37

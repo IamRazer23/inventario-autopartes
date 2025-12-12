@@ -2,9 +2,11 @@
 /**
  * Controlador Público
  * Maneja las páginas públicas (catálogo, detalles, búsqueda)
+ * 
+ * @author Grupo 1SF131
+ * @version 1.0
  */
 
-// Asegurarse de que Database esté disponible
 require_once __DIR__ . '/../config/Database.php';
 
 class PublicController {
@@ -39,10 +41,8 @@ class PublicController {
                 LIMIT 8";
             $destacadas = $db->fetchAll($queryDestacadas);
             
-            // Variables para la vista
             $pageTitle = 'Inicio - AutoPartes Pro';
             
-            // Incluir la vista
             require_once VIEWS_PATH . '/public/home.php';
             
         } catch (Exception $e) {
@@ -75,7 +75,7 @@ class PublicController {
             $porPagina = defined('ITEMS_PER_PAGE') ? ITEMS_PER_PAGE : 12;
             $offset = ($pagina - 1) * $porPagina;
             
-            // Construir query
+            // Construir query base
             $query = "SELECT 
                 a.id, a.nombre, a.marca, a.modelo, a.anio, a.precio, a.stock, 
                 a.thumbnail as imagen_thumb,
@@ -98,8 +98,11 @@ class PublicController {
             }
             
             if (!empty($filtros['buscar'])) {
-                $query .= " AND (a.nombre LIKE :buscar OR a.marca LIKE :buscar OR a.modelo LIKE :buscar)";
-                $params[':buscar'] = '%' . $filtros['buscar'] . '%';
+                $buscar = '%' . $filtros['buscar'] . '%';
+                $query .= " AND (a.nombre LIKE :buscar_nombre OR a.marca LIKE :buscar_marca OR a.modelo LIKE :buscar_modelo)";
+                $params[':buscar_nombre'] = $buscar;
+                $params[':buscar_marca'] = $buscar;
+                $params[':buscar_modelo'] = $buscar;
             }
             
             if (!empty($filtros['anio'])) {
@@ -206,6 +209,7 @@ class PublicController {
             
             // Filtros de búsqueda
             $filtros = [
+                'categoria_id' => $id,
                 'marca' => $_GET['marca'] ?? '',
                 'buscar' => $_GET['buscar'] ?? '',
                 'anio' => $_GET['anio'] ?? '',
@@ -227,19 +231,21 @@ class PublicController {
                 c.nombre as categoria_nombre, c.id as categoria_id
                 FROM autopartes a
                 INNER JOIN categorias c ON a.categoria_id = c.id
-                WHERE a.estado = 1 AND c.id = :categoria_id";
+                WHERE a.estado = 1 AND a.categoria_id = :cat_id";
             
-            $params = [':categoria_id' => $id];
+            $params = [':cat_id' => $id];
             
-            // Aplicar filtros adicionales
             if (!empty($filtros['marca'])) {
                 $query .= " AND a.marca = :marca";
                 $params[':marca'] = $filtros['marca'];
             }
             
             if (!empty($filtros['buscar'])) {
-                $query .= " AND (a.nombre LIKE :buscar OR a.marca LIKE :buscar OR a.modelo LIKE :buscar)";
-                $params[':buscar'] = '%' . $filtros['buscar'] . '%';
+                $buscar = '%' . $filtros['buscar'] . '%';
+                $query .= " AND (a.nombre LIKE :buscar_nombre OR a.marca LIKE :buscar_marca OR a.modelo LIKE :buscar_modelo)";
+                $params[':buscar_nombre'] = $buscar;
+                $params[':buscar_marca'] = $buscar;
+                $params[':buscar_modelo'] = $buscar;
             }
             
             if (!empty($filtros['anio'])) {
@@ -258,12 +264,7 @@ class PublicController {
             }
             
             // Contar total
-            $queryCount = preg_replace(
-                '/SELECT .* FROM/',
-                'SELECT COUNT(DISTINCT a.id) as total FROM',
-                $query
-            );
-            
+            $queryCount = preg_replace('/SELECT .* FROM/', 'SELECT COUNT(DISTINCT a.id) as total FROM', $query);
             $totalAutopartes = $db->fetchOne($queryCount, $params)['total'] ?? 0;
             $totalPaginas = ceil($totalAutopartes / $porPagina);
             
@@ -334,9 +335,11 @@ class PublicController {
             
             $db = Database::getInstance();
             
-            // Obtener autoparte
+            // Obtener autoparte con todos los campos necesarios
             $query = "SELECT 
-                a.*, 
+                a.id, a.nombre, a.marca, a.modelo, a.anio, a.precio, a.stock,
+                a.descripcion, a.thumbnail, a.imagen_grande,
+                a.thumbnail as imagen_thumb,
                 c.nombre as categoria_nombre, 
                 c.id as categoria_id
                 FROM autopartes a
@@ -352,7 +355,8 @@ class PublicController {
             
             // Obtener comentarios publicados
             $queryComentarios = "SELECT 
-                co.*, u.nombre as usuario_nombre
+                co.id, co.comentario, co.fecha_creacion,
+                COALESCE(u.nombre, co.nombre_usuario, 'Anónimo') as usuario_nombre
                 FROM comentarios co
                 LEFT JOIN usuarios u ON co.usuario_id = u.id
                 WHERE co.autoparte_id = :id AND co.publicar = 1
@@ -401,7 +405,6 @@ class PublicController {
             
             $autoparteId = filter_input(INPUT_POST, 'autoparte_id', FILTER_VALIDATE_INT);
             $comentario = trim($_POST['comentario'] ?? '');
-            $calificacion = filter_input(INPUT_POST, 'calificacion', FILTER_VALIDATE_INT) ?: 5;
             
             if (!$autoparteId) {
                 throw new Exception('Producto no válido');
@@ -409,10 +412,6 @@ class PublicController {
             
             if (empty($comentario)) {
                 throw new Exception('El comentario no puede estar vacío');
-            }
-            
-            if ($calificacion < 1 || $calificacion > 5) {
-                $calificacion = 5;
             }
             
             $db = Database::getInstance();
@@ -424,15 +423,14 @@ class PublicController {
             }
             
             // Insertar comentario (pendiente de aprobación)
-            $query = "INSERT INTO comentarios (autoparte_id, usuario_id, comentario, calificacion, publicar) 
-                     VALUES (:autoparte_id, :usuario_id, :comentario, :calificacion, 0)";
+            $query = "INSERT INTO comentarios (autoparte_id, usuario_id, comentario, publicar) 
+                     VALUES (:autoparte_id, :usuario_id, :comentario, 0)";
             
             $stmt = $db->getConnection()->prepare($query);
             $stmt->execute([
                 ':autoparte_id' => $autoparteId,
                 ':usuario_id' => $_SESSION['usuario_id'],
-                ':comentario' => $comentario,
-                ':calificacion' => $calificacion
+                ':comentario' => $comentario
             ]);
             
             // Respuesta AJAX

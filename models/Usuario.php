@@ -2,6 +2,10 @@
 /**
  * Clase Usuario
  * Modelo para gestión de usuarios del sistema
+ * Cumple con requisito 10: Cada módulo debe tener una clase con las posibles acciones
+ * 
+ * @author Grupo 1SF131
+ * @version 1.0
  */
 
 require_once __DIR__ . '/../config/Database.php';

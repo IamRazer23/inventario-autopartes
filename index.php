@@ -2,6 +2,9 @@
 /**
  * Punto de entrada principal del sistema
  * Enrutador simple para el proyecto
+ * 
+ * @author Grupo 1SF131
+ * @version 1.0
  */
 
 // Cargar configuración (que a su vez carga las clases core)
