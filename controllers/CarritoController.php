@@ -2,9 +2,6 @@
 /**
  * Controlador Carrito
  * Maneja todas las operaciones del carrito de compras
- * 
- * @author Grupo 1SF131
- * @version 1.0
  */
 
 // Cargar dependencias necesarias

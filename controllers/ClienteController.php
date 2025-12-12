@@ -2,9 +2,6 @@
 /**
  * Controlador Cliente
  * Maneja las funcionalidades del cliente (compras, carrito, historial, perfil)
- * 
- * @author Grupo 1SF131
- * @version 1.0
  */
 
 // Cargar dependencias necesarias

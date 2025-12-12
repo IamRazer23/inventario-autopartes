@@ -1,13 +1,10 @@
 <?php
 /**
  * Vista: Ver Detalle de Autoparte
- * Cumple con requisito 9: Ver detalle de la parte del auto, costo y unidades existentes
- * 
- * @author Grupo 1SF131
  */
 
 // Incluir header del admin
-require_once VIEWS_PATH . '/admin/layouts/header.php';
+require_once VIEWS_PATH . '/layouts/header.php';
 ?>
 
 <div class="container-fluid py-4">
@@ -163,19 +160,6 @@ require_once VIEWS_PATH . '/admin/layouts/header.php';
                                 <span class="badge bg-info fs-6">
                                     <?= htmlspecialchars($autoparte['categoria_nombre'] ?? 'Sin categoría') ?>
                                 </span>
-                            </p>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label class="text-muted small">Sección / Ubicación</label>
-                            <p class="mb-0">
-                                <?php if ($autoparte['seccion_nombre']): ?>
-                                    <span class="badge bg-secondary fs-6">
-                                        <i class="fas fa-map-marker-alt me-1"></i>
-                                        <?= htmlspecialchars($autoparte['seccion_nombre']) ?>
-                                    </span>
-                                <?php else: ?>
-                                    <span class="text-muted">No especificada</span>
-                                <?php endif; ?>
                             </p>
                         </div>
                     </div>
@@ -420,5 +404,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <?php
 // Incluir footer del admin
-require_once VIEWS_PATH . '/admin/layouts/footer.php';
+require_once VIEWS_PATH . '/layouts/footer.php';
 ?>

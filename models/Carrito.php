@@ -2,10 +2,6 @@
 /**
  * Clase Carrito
  * Modelo para gestión del carrito de compras
- * Cumple con requisito: Manejo de carrito para clientes
- * 
- * @author Grupo 1SF131
- * @version 1.0
  */
 
 require_once __DIR__ . '/../config/Database.php';

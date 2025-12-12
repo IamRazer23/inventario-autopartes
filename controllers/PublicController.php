@@ -2,9 +2,6 @@
 /**
  * Controlador Público
  * Maneja las páginas públicas (catálogo, detalles, búsqueda)
- * 
- * @author Grupo 1SF131
- * @version 1.0
  */
 
 // Asegurarse de que Database esté disponible

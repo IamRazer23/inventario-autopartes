@@ -2,10 +2,6 @@
 /**
  * Clase Validator
  * Sanitiza y valida datos de entrada
- * Cumple con requisito 13: Clase de sanitizar y validar datos
- * 
- * @author Grupo 1SF131
- * @version 1.0
  */
 
 class Validator {

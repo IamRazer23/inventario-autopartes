@@ -989,3 +989,74 @@
 [2025-12-12 08:37:19] [CRITICAL] Exception: Call to undefined method PublicController::categoria() en C:\xampp\htdocs\inventario-autopartes\index.php línea 445
 [2025-12-12 08:37:43] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
 [2025-12-12 08:38:09] [CRITICAL] Exception: Call to undefined method ClienteController::perfil() en C:\xampp\htdocs\inventario-autopartes\index.php línea 327
+[2025-12-12 08:48:22] [CRITICAL] Exception: Call to undefined method AdminController::ventas() en C:\xampp\htdocs\inventario-autopartes\index.php línea 242
+[2025-12-12 08:56:03] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:03] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:04] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:04] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:04] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:04] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:07] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:07] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:09] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:09] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:12] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:12] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:14] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:14] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:21] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:21] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:23] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:23] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:26] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:26] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:40] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:40] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:56:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:59:13] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:59:13] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:59:28] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 08:59:28] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:00:12] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:00:12] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:00:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:00:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:00:26] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:00:26] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:00:28] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:00:28] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:08:08] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:08:08] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:08:13] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:08:13] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:08:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:08:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:08:46] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:08:46] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:20:57] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:20:57] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:20:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\controllers\AutoparteController.php línea 130
+[2025-12-12 09:20:59] [CRITICAL] Exception: Failed opening required 'C:\xampp\htdocs\inventario-autopartes/views/admin/autopartes/crear.php' (include_path='C:\xampp\php\PEAR') en C:\xampp\htdocs\inventario-autopartes\controllers\AutoparteController.php línea 130
+[2025-12-12 09:23:49] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\inventario\crear.php línea 10
+[2025-12-12 09:23:49] [CRITICAL] Exception: Failed opening required 'C:\xampp\htdocs\inventario-autopartes/views/admin/layouts/header.php' (include_path='C:\xampp\php\PEAR') en C:\xampp\htdocs\inventario-autopartes\views\admin\inventario\crear.php línea 10
+[2025-12-12 09:25:40] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\inventario\crear.php línea 326
+[2025-12-12 09:25:40] [CRITICAL] Exception: Failed opening required 'C:\xampp\htdocs\inventario-autopartes/views/admin/layouts/footer.php' (include_path='C:\xampp\php\PEAR') en C:\xampp\htdocs\inventario-autopartes\views\admin\inventario\crear.php línea 326
+[2025-12-12 09:26:09] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:26:09] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:28:57] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:28:57] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:29:07] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:29:07] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:30:18] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:30:18] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:30:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
+[2025-12-12 09:30:28] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:30:28] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:31:46] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:31:46] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:33:10] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:33:10] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:33:30] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:33:30] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\admin\dashboard.php línea 193
+[2025-12-12 09:33:49] [CRITICAL] Exception: Class "Database" not found en C:\xampp\htdocs\inventario-autopartes\controllers\OperadorController.php línea 25

@@ -1,9 +1,6 @@
 /**
  * Carrito de Compras - JavaScript
  * Funciones para manejo del carrito vía AJAX
- * 
- * @author Grupo 1SF131
- * @version 1.0
  */
 
 const CarritoJS = {

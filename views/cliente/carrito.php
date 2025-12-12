@@ -2,8 +2,6 @@
 /**
  * Vista: Carrito de Compras
  * Muestra los productos en el carrito del cliente
- * 
- * @author Grupo 1SF131
  */
 
 $pageTitle = $pageTitle ?? 'Mi Carrito de Compras';

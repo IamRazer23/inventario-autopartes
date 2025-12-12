@@ -2,9 +2,6 @@
 /**
  * Controlador de Usuarios
  * Maneja el CRUD completo de usuarios (Admin, Operador, Cliente)
- * 
- * @author Grupo 1SF131
- * @version 1.0
  */
 
 // Cargar dependencias necesarias

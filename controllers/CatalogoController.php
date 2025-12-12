@@ -3,9 +3,6 @@
  * Controlador del Catálogo Público
  * Permite a invitados y clientes ver las autopartes disponibles
  * Cumple con requisitos 8 y 9: Página pública con catálogo y detalle
- * 
- * @author Grupo 1SF131
- * @version 1.0
  */
 
 // Cargar dependencias necesarias

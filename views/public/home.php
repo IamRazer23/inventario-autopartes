@@ -2,8 +2,6 @@
 /**
  * Vista: Página Principal Pública
  * Página de inicio para usuarios no autenticados
- * 
- * @author Grupo 1SF131
  */
 
 $pageTitle = 'Inicio - AutoPartes Pro';

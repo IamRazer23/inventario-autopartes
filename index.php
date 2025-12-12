@@ -2,9 +2,6 @@
 /**
  * Punto de entrada principal del sistema
  * Enrutador simple para el proyecto
- * 
- * @author Grupo 1SF131
- * @version 1.0
  */
 
 // Cargar configuración (que a su vez carga las clases core)
@@ -82,6 +79,41 @@ switch ($module) {
         switch ($action) {
             case 'dashboard':
                 $controller->dashboard();
+                break;
+                
+            // === PERFIL DEL ADMIN ===
+            case 'perfil':
+                $controller->perfil();
+                break;
+                
+            case 'perfil-update':
+            case 'perfilUpdate':
+                $controller->perfilUpdate();
+                break;
+                
+            // === VENTAS ===
+            case 'ventas':
+                $controller->ventas();
+                break;
+                
+            case 'venta-detalle':
+                $controller->ventaDetalle();
+                break;
+                
+            case 'exportar-ventas':
+            case 'exportarVentas':
+                $controller->exportarVentas();
+                break;
+                
+            // === STOCK BAJO ===
+            case 'stock-bajo':
+            case 'stockBajo':
+                $controller->stockBajo();
+                break;
+                
+            // === ESTADÍSTICAS ===
+            case 'estadisticas':
+                $controller->estadisticas();
                 break;
                 
             case 'getEstadisticas':
@@ -194,13 +226,27 @@ switch ($module) {
                 $categoriaController->detalle();
                 break;
                 
-            // === RUTAS DE AUTOPARTES ===
+            // === RUTAS DE AUTOPARTES/INVENTARIO ===
             case 'autopartes':
+            case 'inventario':
                 require_once CONTROLLERS_PATH . '/AutoparteController.php';
                 $autoparteController = new AutoparteController();
                 $autoparteController->index();
                 break;
-                
+            
+            case 'exportar-inventario':
+            case 'exportar-excel':
+            case 'reporte-inventario':
+                require_once CONTROLLERS_PATH . '/AutoparteController.php';
+                $autoparteController = new AutoparteController();
+                $autoparteController->exportar();
+                break;
+            
+            case 'inventario-bajo':
+                $controller->stockBajo();
+                break;
+            
+            case 'inventario-agregar':
             case 'autoparte-crear':
                 require_once CONTROLLERS_PATH . '/AutoparteController.php';
                 $autoparteController = new AutoparteController();

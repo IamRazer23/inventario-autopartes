@@ -2,8 +2,6 @@
 /**
  * Vista: Confirmación de Compra
  * Muestra la confirmación exitosa del pedido
- * 
- * @author Grupo 1SF131
  */
 
 $pageTitle = $pageTitle ?? 'Compra Confirmada';
@@ -158,7 +156,7 @@ $detalle = $compra['detalle'];
         <!-- Contacto -->
         <div class="text-center mt-6 text-gray-500 text-sm">
             <p>¿Tienes alguna pregunta sobre tu pedido?</p>
-            <p><i class="fas fa-phone mr-1"></i>+507 6123-4567 | <i class="fas fa-envelope mr-1"></i>info@autopartes.com</p>
+            <p><i class="fas fa-phone mr-1"></i>+507 6008-6038 | <i class="fas fa-envelope mr-1"></i>info@autopartes.com</p>
         </div>
     </div>
 </div>

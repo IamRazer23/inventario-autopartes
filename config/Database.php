@@ -2,10 +2,6 @@
 /**
  * Clase Database
  * Maneja la conexión a la base de datos usando PDO
- * Implementa el patrón Singleton
- * 
- * @author Grupo 1SF131
- * @version 1.0
  */
 
 class Database {

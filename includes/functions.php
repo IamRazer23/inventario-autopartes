@@ -2,14 +2,7 @@
 /**
  * Funciones Helper del Sistema
  * Contiene todas las funciones auxiliares usadas en el proyecto
- * 
- * @author Grupo 1SF131
- * @version 1.0
  */
-
-// ============================================================================
-// FUNCIONES DE AUTENTICACIÓN Y SESIÓN
-// ============================================================================
 
 /**
  * Verifica si el usuario está autenticado

@@ -2,9 +2,6 @@
 /**
  * Controlador de Categorías
  * Maneja el CRUD de categorías de autopartes
- * 
- * @author Grupo 1SF131
- * @version 1.0
  */
 
 require_once __DIR__ . '/../models/Categoria.php';

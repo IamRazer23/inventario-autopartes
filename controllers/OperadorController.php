@@ -1,11 +1,18 @@
 <?php
 /**
  * Controlador Operador
- * Maneja las funcionalidades del operador de inventario
- * 
- * @author Grupo 1SF131
- * @version 1.0
+ * Maneja las acciones del operador en el sistema de inventario de autopartes
  */
+
+if (!class_exists('Database')) {
+    require_once __DIR__ . '/../config/Database.php';
+}
+if (!class_exists('Autoparte')) {
+    require_once __DIR__ . '/../models/Autoparte.php';
+}
+if (!class_exists('Validator')) {
+    require_once __DIR__ . '/../core/Validator.php';
+}
 
 class OperadorController {
     

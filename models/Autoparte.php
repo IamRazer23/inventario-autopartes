@@ -2,11 +2,6 @@
 /**
  * Clase Autoparte
  * Modelo para gestión del inventario de autopartes
- * Cumple con requisito 3: CRUD del Auto o partes del Auto
- * Cumple con requisito 10: Cada módulo debe tener una clase con las posibles acciones
- * 
- * @author Grupo 1SF131
- * @version 1.0
  */
 
 require_once __DIR__ . '/../config/Database.php';
@@ -27,7 +22,6 @@ class Autoparte {
     public $precio;
     public $stock;
     public $categoria_id;
-    public $seccion_id;
     public $imagen_thumb;
     public $imagen_grande;
     public $estado;
@@ -57,11 +51,11 @@ class Autoparte {
         try {
             $query = "INSERT INTO autopartes (
                         nombre, descripcion, marca, modelo, anio, 
-                        precio, stock, categoria_id, seccion_id,
+                        precio, stock, categoria_id,
                         imagen_thumb, imagen_grande, estado, usuario_id
                     ) VALUES (
                         :nombre, :descripcion, :marca, :modelo, :anio,
-                        :precio, :stock, :categoria_id, :seccion_id,
+                        :precio, :stock, :categoria_id,
                         :imagen_thumb, :imagen_grande, :estado, :usuario_id
                     )";
             
@@ -75,7 +69,6 @@ class Autoparte {
             $stmt->bindParam(':precio', $this->precio);
             $stmt->bindParam(':stock', $this->stock, PDO::PARAM_INT);
             $stmt->bindParam(':categoria_id', $this->categoria_id, PDO::PARAM_INT);
-            $stmt->bindParam(':seccion_id', $this->seccion_id, PDO::PARAM_INT);
             $stmt->bindParam(':imagen_thumb', $this->imagen_thumb);
             $stmt->bindParam(':imagen_grande', $this->imagen_grande);
             $stmt->bindParam(':estado', $this->estado, PDO::PARAM_INT);
@@ -102,11 +95,9 @@ class Autoparte {
         try {
             $query = "SELECT a.*, 
                             c.nombre as categoria_nombre,
-                            s.nombre as seccion_nombre,
                             u.nombre as usuario_nombre
                      FROM autopartes a 
                      LEFT JOIN categorias c ON a.categoria_id = c.id 
-                     LEFT JOIN secciones s ON a.seccion_id = s.id
                      LEFT JOIN usuarios u ON a.usuario_id = u.id
                      WHERE a.id = :id";
             
@@ -131,10 +122,8 @@ class Autoparte {
         try {
             $query = "SELECT a.*, 
                             c.nombre as categoria_nombre,
-                            s.nombre as seccion_nombre
                      FROM autopartes a 
                      LEFT JOIN categorias c ON a.categoria_id = c.id 
-                     LEFT JOIN secciones s ON a.seccion_id = s.id
                      WHERE 1=1";
             
             $params = [];
@@ -148,11 +137,6 @@ class Autoparte {
             if (isset($filtros['categoria_id']) && $filtros['categoria_id'] !== '') {
                 $query .= " AND a.categoria_id = :categoria_id";
                 $params[':categoria_id'] = $filtros['categoria_id'];
-            }
-            
-            if (isset($filtros['seccion_id']) && $filtros['seccion_id'] !== '') {
-                $query .= " AND a.seccion_id = :seccion_id";
-                $params[':seccion_id'] = $filtros['seccion_id'];
             }
             
             if (isset($filtros['marca']) && $filtros['marca'] !== '') {
@@ -269,7 +253,6 @@ class Autoparte {
                         precio = :precio,
                         stock = :stock,
                         categoria_id = :categoria_id,
-                        seccion_id = :seccion_id,
                         estado = :estado,
                         fecha_actualizacion = CURRENT_TIMESTAMP";
             
@@ -293,7 +276,6 @@ class Autoparte {
             $stmt->bindParam(':precio', $this->precio);
             $stmt->bindParam(':stock', $this->stock, PDO::PARAM_INT);
             $stmt->bindParam(':categoria_id', $this->categoria_id, PDO::PARAM_INT);
-            $stmt->bindParam(':seccion_id', $this->seccion_id, PDO::PARAM_INT);
             $stmt->bindParam(':estado', $this->estado, PDO::PARAM_INT);
             $stmt->bindParam(':id', $this->id, PDO::PARAM_INT);
             

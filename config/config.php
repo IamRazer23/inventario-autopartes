@@ -1,18 +1,9 @@
 <?php
 /**
  * Archivo de Configuración Principal
- * Sistema de Inventario de Autopartes
- * 
- * @author Grupo 1SF131
- * @version 1.0
  */
 
-// =====================================================
-// CONFIGURACIÓN GENERAL
-// =====================================================
-
-// Modo de desarrollo (true en desarrollo, false en producción)
-define('DEV_MODE', true);
+define('DEV_MODE', false);
 
 // Zona horaria
 date_default_timezone_set('America/Panama');

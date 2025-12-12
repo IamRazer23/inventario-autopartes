@@ -2,9 +2,6 @@
 /**
  * Controlador de Autenticación
  * Maneja login, registro y logout
- * 
- * @author Grupo 1SF131
- * @version 1.0
  */
 
 require_once __DIR__ . '/../models/Usuario.php';

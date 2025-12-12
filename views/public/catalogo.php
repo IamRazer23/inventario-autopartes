@@ -2,8 +2,6 @@
 /**
  * Vista: Catálogo Público
  * Cumple con requisito 8: Página pública con listado de autopartes
- * 
- * @author Grupo 1SF131
  */
 
 $pageTitle = isset($categoria) ? $categoria['nombre'] . ' - Catálogo' : 'Catálogo - AutoPartes Pro';

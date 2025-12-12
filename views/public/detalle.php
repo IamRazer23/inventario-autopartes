@@ -2,8 +2,6 @@
 /**
  * Vista: Detalle de Autoparte (Público)
  * Cumple con requisito 9: Detalle con imagen, costo, unidades y comentarios
- * 
- * @author Grupo 1SF131
  */
 
 $pageTitle = htmlspecialchars($autoparte['nombre']) . ' - AutoPartes Pro';

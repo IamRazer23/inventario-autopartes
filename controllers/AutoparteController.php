@@ -2,10 +2,6 @@
 /**
  * Controlador de Autopartes
  * Maneja el CRUD completo del inventario de autopartes
- * Cumple con requisitos 3, 5, 6, 7 del proyecto
- * 
- * @author Grupo 1SF131
- * @version 1.0
  */
 
 // Cargar dependencias necesarias
@@ -51,7 +47,6 @@ class AutoparteController {
             $filtros = [
                 'buscar' => $_GET['buscar'] ?? '',
                 'categoria_id' => $_GET['categoria'] ?? '',
-                'seccion_id' => $_GET['seccion'] ?? '',
                 'marca' => $_GET['marca'] ?? '',
                 'modelo' => $_GET['modelo'] ?? '',
                 'anio' => $_GET['anio'] ?? '',
@@ -79,7 +74,6 @@ class AutoparteController {
             
             // Obtener datos para filtros
             $categorias = $this->obtenerCategorias();
-            $secciones = $this->obtenerSecciones();
             $marcas = $this->autoparteModel->obtenerMarcas();
             $anios = $this->autoparteModel->obtenerAnios();
             
@@ -118,7 +112,6 @@ class AutoparteController {
             
             // Obtener datos para el formulario
             $categorias = $this->obtenerCategorias();
-            $secciones = $this->obtenerSecciones();
             $marcas = $this->autoparteModel->obtenerMarcas();
             
             // Variables para la vista
@@ -130,7 +123,7 @@ class AutoparteController {
             ];
             
             // Incluir vista
-            require_once VIEWS_PATH . '/admin/autopartes/crear.php';
+            require_once VIEWS_PATH . '/admin/inventario/crear.php';
             
         } catch (Exception $e) {
             setFlashMessage(MSG_ERROR, 'Error al cargar formulario');
@@ -163,7 +156,6 @@ class AutoparteController {
             $precio = Validator::sanitizeFloat($_POST['precio'] ?? 0);
             $stock = Validator::sanitizeInt($_POST['stock'] ?? 0);
             $categoria_id = Validator::sanitizeInt($_POST['categoria_id'] ?? 0);
-            $seccion_id = Validator::sanitizeInt($_POST['seccion_id'] ?? 0);
             $estado = isset($_POST['estado']) ? 1 : 0;
             
             // Validaciones
@@ -229,7 +221,6 @@ class AutoparteController {
             $this->autoparteModel->precio = $precio;
             $this->autoparteModel->stock = $stock;
             $this->autoparteModel->categoria_id = $categoria_id;
-            $this->autoparteModel->seccion_id = $seccion_id ?: null;
             $this->autoparteModel->imagen_thumb = $imagen_thumb;
             $this->autoparteModel->imagen_grande = $imagen_grande;
             $this->autoparteModel->estado = $estado;
@@ -288,7 +279,6 @@ class AutoparteController {
             
             // Obtener datos para el formulario
             $categorias = $this->obtenerCategorias();
-            $secciones = $this->obtenerSecciones();
             $marcas = $this->autoparteModel->obtenerMarcas();
             
             // Variables para la vista
@@ -347,7 +337,6 @@ class AutoparteController {
             $precio = Validator::sanitizeFloat($_POST['precio'] ?? 0);
             $stock = Validator::sanitizeInt($_POST['stock'] ?? 0);
             $categoria_id = Validator::sanitizeInt($_POST['categoria_id'] ?? 0);
-            $seccion_id = Validator::sanitizeInt($_POST['seccion_id'] ?? 0);
             $estado = isset($_POST['estado']) ? 1 : 0;
             
             // Validaciones
@@ -413,7 +402,6 @@ class AutoparteController {
             $this->autoparteModel->precio = $precio;
             $this->autoparteModel->stock = $stock;
             $this->autoparteModel->categoria_id = $categoria_id;
-            $this->autoparteModel->seccion_id = $seccion_id ?: null;
             $this->autoparteModel->imagen_thumb = $imagen_thumb;
             $this->autoparteModel->imagen_grande = $imagen_grande;
             $this->autoparteModel->estado = $estado;
@@ -730,17 +718,6 @@ class AutoparteController {
     }
     
     /**
-     * Obtiene todas las secciones activas
-     * Cumple con requisito 6: Módulo de Secciones
-     * 
-     * @return array
-     */
-    private function obtenerSecciones() {
-        $query = "SELECT id, nombre, descripcion FROM secciones WHERE estado = 1 ORDER BY nombre";
-        return $this->db->fetchAll($query);
-    }
-    
-    /**
      * Búsqueda AJAX para autocompletado
      */
     public function buscarAjax() {
@@ -792,6 +769,67 @@ class AutoparteController {
             
         } catch (Exception $e) {
             jsonResponse(['modelos' => [], 'error' => $e->getMessage()]);
+        }
+    }
+
+     public function exportar() {
+        try {
+            // Verificar permiso
+            if (!hasPermission('inventario', 'leer')) {
+                setFlashMessage(MSG_ERROR, 'No tienes permiso para exportar');
+                redirect('/index.php?module=admin&action=inventario');
+            }
+            
+            $formato = $_GET['formato'] ?? 'csv';
+            
+            // Obtener todos los datos
+            $query = "SELECT 
+                a.id as 'ID',
+                a.nombre as 'Nombre',
+                a.descripcion as 'Descripción',
+                a.marca as 'Marca',
+                a.modelo as 'Modelo',
+                a.anio as 'Año',
+                a.precio as 'Precio',
+                a.stock as 'Stock',
+                c.nombre as 'Categoría',
+                CASE WHEN a.estado = 1 THEN 'Activo' ELSE 'Inactivo' END as 'Estado',
+                a.fecha_creacion as 'Fecha Creación'
+                FROM autopartes a
+                LEFT JOIN categorias c ON a.categoria_id = c.id
+                ORDER BY a.nombre ASC";
+            
+            $autopartes = $this->db->fetchAll($query);
+            
+            if ($formato === 'csv') {
+                // Configurar headers para descarga CSV
+                header('Content-Type: text/csv; charset=utf-8');
+                header('Content-Disposition: attachment; filename=inventario_' . date('Y-m-d_H-i-s') . '.csv');
+                header('Pragma: no-cache');
+                header('Expires: 0');
+                
+                $output = fopen('php://output', 'w');
+                
+                // BOM para Excel (reconozca UTF-8)
+                fprintf($output, chr(0xEF).chr(0xBB).chr(0xBF));
+                
+                // Encabezados
+                if (!empty($autopartes)) {
+                    fputcsv($output, array_keys($autopartes[0]), ';');
+                }
+                
+                // Datos
+                foreach ($autopartes as $autoparte) {
+                    fputcsv($output, $autoparte, ';');
+                }
+                
+                fclose($output);
+                exit;
+            }
+            
+        } catch (Exception $e) {
+            setFlashMessage(MSG_ERROR, 'Error al exportar: ' . $e->getMessage());
+            redirect('/index.php?module=admin&action=inventario');
         }
     }
 }

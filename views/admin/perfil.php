@@ -1,7 +1,6 @@
 <?php
 /**
- * Vista: Perfil del Cliente
- * Permite al cliente ver y editar su información personal
+ * Vista: Perfil del Administrador
  */
 
 $pageTitle = $pageTitle ?? 'Mi Perfil';
@@ -12,24 +11,21 @@ require_once VIEWS_PATH . '/layouts/header.php';
     <!-- Breadcrumb -->
     <nav class="mb-6">
         <ol class="flex items-center space-x-2 text-sm text-gray-600">
-            <li><a href="<?= BASE_URL ?>" class="hover:text-indigo-600"><i class="fas fa-home"></i></a></li>
-            <li><i class="fas fa-chevron-right text-xs text-gray-400"></i></li>
-            <li><a href="<?= BASE_URL ?>/index.php?module=cliente&action=dashboard" class="hover:text-indigo-600">Mi Panel</a></li>
+            <li><a href="<?= BASE_URL ?>/index.php?module=admin&action=dashboard" class="hover:text-indigo-600"><i class="fas fa-home"></i></a></li>
             <li><i class="fas fa-chevron-right text-xs text-gray-400"></i></li>
             <li class="text-indigo-600 font-medium">Mi Perfil</li>
         </ol>
     </nav>
 
-    <!-- Título -->
     <div class="mb-8">
         <h1 class="text-3xl font-bold text-gray-800 mb-2">
-            <i class="fas fa-user-circle text-indigo-600 mr-3"></i>Mi Perfil
+            <i class="fas fa-user-shield text-indigo-600 mr-3"></i>Mi Perfil
         </h1>
-        <p class="text-gray-600">Administra tu información personal</p>
+        <p class="text-gray-600">Administra tu información de cuenta</p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <!-- Columna izquierda: Info del usuario -->
+        <!-- Info del usuario -->
         <div class="lg:col-span-1">
             <div class="bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="bg-gradient-to-r from-indigo-600 to-purple-600 p-6 text-center">
@@ -41,55 +37,47 @@ require_once VIEWS_PATH . '/layouts/header.php';
                     <h2 class="text-xl font-bold text-white"><?= htmlspecialchars($usuario['nombre']) ?></h2>
                     <p class="text-indigo-200"><?= htmlspecialchars($usuario['email']) ?></p>
                     <span class="inline-block mt-2 bg-white/20 text-white text-sm px-3 py-1 rounded-full">
-                        <i class="fas fa-user mr-1"></i><?= htmlspecialchars($usuario['rol_nombre']) ?>
+                        <i class="fas fa-shield-alt mr-1"></i><?= htmlspecialchars($usuario['rol_nombre']) ?>
                     </span>
                 </div>
                 
-                <div class="p-6">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between text-sm">
-                            <span class="text-gray-500">Miembro desde</span>
-                            <span class="font-medium text-gray-800"><?= formatDate($usuario['fecha_creacion']) ?></span>
-                        </div>
-                        <div class="flex items-center justify-between text-sm">
-                            <span class="text-gray-500">Última sesión</span>
-                            <span class="font-medium text-gray-800">
-                                <?= $usuario['ultima_sesion'] ? formatDateTime($usuario['ultima_sesion']) : 'Ahora' ?>
-                            </span>
-                        </div>
-                        <div class="flex items-center justify-between text-sm">
-                            <span class="text-gray-500">Estado</span>
-                            <span class="inline-flex items-center bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">
-                                <i class="fas fa-check-circle mr-1"></i>Activo
-                            </span>
-                        </div>
+                <div class="p-6 space-y-4">
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-gray-500">Miembro desde</span>
+                        <span class="font-medium text-gray-800"><?= formatDate($usuario['fecha_creacion']) ?></span>
+                    </div>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-gray-500">Estado</span>
+                        <span class="inline-flex items-center bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">
+                            <i class="fas fa-check-circle mr-1"></i>Activo
+                        </span>
                     </div>
                 </div>
             </div>
             
-            <!-- Estadísticas -->
+            <!-- Estadísticas del sistema -->
             <div class="bg-white rounded-xl shadow-md p-6 mt-6">
                 <h3 class="font-bold text-gray-800 mb-4">
-                    <i class="fas fa-chart-bar text-indigo-600 mr-2"></i>Mis Estadísticas
+                    <i class="fas fa-chart-pie text-indigo-600 mr-2"></i>Sistema
                 </h3>
                 <div class="space-y-4">
                     <div class="flex items-center justify-between">
-                        <span class="text-gray-600">Total de compras</span>
-                        <span class="font-bold text-indigo-600"><?= $stats['total_compras'] ?? 0 ?></span>
+                        <span class="text-gray-600">Total usuarios</span>
+                        <span class="font-bold text-indigo-600"><?= $stats['total_usuarios'] ?></span>
                     </div>
                     <div class="flex items-center justify-between">
-                        <span class="text-gray-600">Total gastado</span>
-                        <span class="font-bold text-green-600"><?= formatCurrency($stats['total_gastado'] ?? 0) ?></span>
+                        <span class="text-gray-600">Total autopartes</span>
+                        <span class="font-bold text-green-600"><?= $stats['total_autopartes'] ?></span>
                     </div>
                     <div class="flex items-center justify-between">
-                        <span class="text-gray-600">Comentarios</span>
-                        <span class="font-bold text-purple-600"><?= $stats['total_comentarios'] ?? 0 ?></span>
+                        <span class="text-gray-600">Total ventas</span>
+                        <span class="font-bold text-purple-600"><?= $stats['total_ventas'] ?></span>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- Columna derecha: Formulario de edición -->
+        <!-- Formulario de edición -->
         <div class="lg:col-span-2">
             <div class="bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="bg-gray-50 px-6 py-4 border-b">
@@ -98,10 +86,9 @@ require_once VIEWS_PATH . '/layouts/header.php';
                     </h2>
                 </div>
                 
-                <form action="<?= BASE_URL ?>/index.php?module=cliente&action=perfilUpdate" method="POST" class="p-6">
+                <form action="<?= BASE_URL ?>/index.php?module=admin&action=perfil-update" method="POST" class="p-6">
                     <input type="hidden" name="csrf_token" value="<?= generateCSRFToken() ?>">
                     
-                    <!-- Información básica -->
                     <div class="mb-6">
                         <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">Información Personal</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -118,11 +105,10 @@ require_once VIEWS_PATH . '/layouts/header.php';
                         </div>
                     </div>
                     
-                    <!-- Cambiar contraseña -->
                     <div class="mb-6">
                         <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
                             Cambiar Contraseña
-                            <span class="text-xs font-normal text-gray-400">(dejar en blanco para mantener la actual)</span>
+                            <span class="text-xs font-normal text-gray-400">(opcional)</span>
                         </h3>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div>
@@ -138,7 +124,7 @@ require_once VIEWS_PATH . '/layouts/header.php';
                                        placeholder="••••••••" minlength="6">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Confirmar Contraseña</label>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Confirmar</label>
                                 <input type="password" name="password_confirm" id="password_confirm"
                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition"
                                        placeholder="••••••••">
@@ -147,9 +133,8 @@ require_once VIEWS_PATH . '/layouts/header.php';
                         <p id="password-match" class="mt-2 text-sm hidden"></p>
                     </div>
                     
-                    <!-- Botones -->
                     <div class="flex justify-end gap-4 pt-4 border-t">
-                        <a href="<?= BASE_URL ?>/index.php?module=cliente&action=dashboard" 
+                        <a href="<?= BASE_URL ?>/index.php?module=admin&action=dashboard" 
                            class="px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold rounded-lg transition">
                             Cancelar
                         </a>
@@ -158,36 +143,6 @@ require_once VIEWS_PATH . '/layouts/header.php';
                         </button>
                     </div>
                 </form>
-            </div>
-            
-            <!-- Acciones rápidas -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-                <a href="<?= BASE_URL ?>/index.php?module=carrito&action=ver" 
-                   class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition group">
-                    <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-indigo-200 transition">
-                        <i class="fas fa-shopping-cart text-indigo-600 text-xl"></i>
-                    </div>
-                    <p class="font-semibold text-gray-800">Mi Carrito</p>
-                    <p class="text-sm text-gray-500">Ver productos guardados</p>
-                </a>
-                
-                <a href="<?= BASE_URL ?>/index.php?module=carrito&action=historial" 
-                   class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition group">
-                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-green-200 transition">
-                        <i class="fas fa-history text-green-600 text-xl"></i>
-                    </div>
-                    <p class="font-semibold text-gray-800">Mis Compras</p>
-                    <p class="text-sm text-gray-500">Historial de pedidos</p>
-                </a>
-                
-                <a href="<?= BASE_URL ?>/index.php?module=cliente&action=comentarios" 
-                   class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition group">
-                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-purple-200 transition">
-                        <i class="fas fa-comments text-purple-600 text-xl"></i>
-                    </div>
-                    <p class="font-semibold text-gray-800">Mis Comentarios</p>
-                    <p class="text-sm text-gray-500">Opiniones enviadas</p>
-                </a>
             </div>
         </div>
     </div>

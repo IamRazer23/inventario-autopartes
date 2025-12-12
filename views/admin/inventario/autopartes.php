@@ -1,13 +1,9 @@
 <?php
 /**
  * Vista: Listado de Autopartes (Inventario)
- * Cumple con requisitos 3 y 7: CRUD y consultas del inventario
- * 
- * @author Grupo 1SF131
  */
 
-// Incluir header del admin
-require_once VIEWS_PATH . '/admin/layouts/header.php';
+require_once VIEWS_PATH . '/layouts/header.php';
 ?>
 
 <div class="container-fluid py-4">
@@ -127,19 +123,6 @@ require_once VIEWS_PATH . '/admin/layouts/header.php';
                                 <?php foreach ($categorias as $cat): ?>
                                 <option value="<?= $cat['id'] ?>" <?= ($filtros['categoria_id'] ?? '') == $cat['id'] ? 'selected' : '' ?>>
                                     <?= htmlspecialchars($cat['nombre']) ?>
-                                </option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
-                        
-                        <!-- Sección -->
-                        <div class="col-md-2">
-                            <label class="form-label">Sección</label>
-                            <select class="form-select" name="seccion">
-                                <option value="">Todas</option>
-                                <?php foreach ($secciones as $sec): ?>
-                                <option value="<?= $sec['id'] ?>" <?= ($filtros['seccion_id'] ?? '') == $sec['id'] ? 'selected' : '' ?>>
-                                    <?= htmlspecialchars($sec['nombre']) ?>
                                 </option>
                                 <?php endforeach; ?>
                             </select>
@@ -579,5 +562,5 @@ function buildPaginationUrl($pagina, $filtros) {
 }
 
 // Incluir footer del admin
-require_once VIEWS_PATH . '/admin/layouts/footer.php';
+require_once VIEWS_PATH . '/layouts/footer.php';
 ?>

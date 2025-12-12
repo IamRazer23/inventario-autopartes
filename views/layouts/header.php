@@ -2,9 +2,6 @@
 /**
  * Header del layout público
  * Diseño con Tailwind CSS y menús horizontales
- * Cumple con requisito 10: CSS y menús horizontales
- * 
- * @author Grupo 1SF131
  */
 
 ?>
@@ -14,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sistema de Inventario de Autopartes - Encuentra las piezas que necesitas">
-    <meta name="author" content="Grupo 1SF131">
+    <meta name="autores" content="Danna Dawkins, Manuel Campos, Daniella de Leon y Juan Botacio">
     
     <title><?= $pageTitle ?? 'AutoPartes Pro - Sistema de Inventario' ?></title>
     
@@ -72,7 +69,7 @@
     <div class="bg-gray-800 text-white text-xs py-2 hidden md:block">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <div class="flex items-center space-x-4">
-                <span><i class="fas fa-phone mr-1"></i> +507 6123-4567</span>
+                <span><i class="fas fa-phone mr-1"></i> +507 6008-6038</span>
                 <span><i class="fas fa-envelope mr-1"></i> info@autopartes.com</span>
             </div>
             <div class="flex items-center space-x-4">
@@ -280,7 +277,7 @@
                 
                 <div class="hidden lg:flex items-center space-x-4 text-sm">
                     <span class="flex items-center"><i class="fas fa-truck mr-2"></i>Envíos a todo Panamá</span>
-                    <span class="flex items-center"><i class="fab fa-whatsapp mr-2"></i>+507 6123-4567</span>
+                    <span class="flex items-center"><i class="fab fa-whatsapp mr-2"></i>+507 6008-6038</span>
                 </div>
             </div>
         </div>

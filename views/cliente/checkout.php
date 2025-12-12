@@ -2,8 +2,6 @@
 /**
  * Vista: Checkout - Finalizar Compra
  * Permite al cliente revisar y confirmar su pedido
- * 
- * @author Grupo 1SF131
  */
 
 $pageTitle = $pageTitle ?? 'Finalizar Compra';

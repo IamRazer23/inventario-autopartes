@@ -88,7 +88,7 @@
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-phone mr-3 text-indigo-500"></i>
-                            <a href="tel:+50761234567" class="hover:text-white transition-colors">+507 6123-4567</a>
+                            <a href="tel:+5076008-6038" class="hover:text-white transition-colors">+507 6008-6038</a>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-envelope mr-3 text-indigo-500"></i>

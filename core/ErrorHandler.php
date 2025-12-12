@@ -3,9 +3,6 @@
  * Clase ErrorHandler
  * Implementa IErrorHandler para manejo centralizado de errores
  * Cumple con requisito 12: Implementar control de Errores
- * 
- * @author Grupo 1SF131
- * @version 1.0
  */
 
 // La interfaz debe estar cargada ANTES de este archivo

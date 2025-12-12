@@ -2,10 +2,6 @@
 /**
  * Interface IErrorHandler
  * Define el contrato para manejo de errores
- * Cumple con requisito 14: Utilizar Interfaces para control de errores
- * 
- * @author Grupo 1SF131
- * @version 1.0
  */
 
 interface IErrorHandler {

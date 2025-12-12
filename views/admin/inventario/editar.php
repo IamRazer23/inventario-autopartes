@@ -1,13 +1,8 @@
 <?php
 /**
- * Vista: Editar Autoparte
- * Cumple con requisito 3: CRUD de autopartes con imágenes
- * 
- * @author Grupo 1SF131
+ * Vista para editar una autoparte en el inventario
  */
-
-// Incluir header del admin
-require_once VIEWS_PATH . '/admin/layouts/header.php';
+require_once VIEWS_PATH . '/layouts/header.php';
 
 // Obtener datos anteriores si hay error
 $old = $_SESSION['old'] ?? $autoparte;
@@ -276,21 +271,6 @@ unset($_SESSION['old'], $_SESSION['errors']);
                             <?php endif; ?>
                         </div>
 
-                        <!-- Sección -->
-                        <div class="mb-3">
-                            <label for="seccion_id" class="form-label">Sección (Ubicación)</label>
-                            <select class="form-select" id="seccion_id" name="seccion_id">
-                                <option value="">Sin sección específica</option>
-                                <?php foreach ($secciones as $sec): ?>
-                                    <option value="<?= $sec['id'] ?>" <?= ($old['seccion_id'] ?? '') == $sec['id'] ? 'selected' : '' ?>>
-                                        <?= htmlspecialchars($sec['nombre']) ?>
-                                    </option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Estado -->
                 <div class="card mb-4">
                     <div class="card-header bg-light">
@@ -425,6 +405,5 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <?php
-// Incluir footer del admin
-require_once VIEWS_PATH . '/admin/layouts/footer.php';
+require_once VIEWS_PATH . '/layouts/footer.php';
 ?>

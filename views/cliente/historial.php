@@ -2,8 +2,6 @@
 /**
  * Vista: Historial de Compras
  * Muestra las compras realizadas por el cliente
- * 
- * @author Grupo 1SF131
  */
 
 $pageTitle = $pageTitle ?? 'Historial de Compras';

@@ -2,8 +2,6 @@
 /**
  * Vista: Detalle de Compra
  * Muestra el detalle completo de una compra específica
- * 
- * @author Grupo 1SF131
  */
 
 $pageTitle = $pageTitle ?? 'Detalle de Compra';
@@ -168,7 +166,7 @@ $detalle = $compra['detalle'];
         <div class="mt-6 text-center text-gray-500 text-sm">
             <p>¿Tienes alguna pregunta sobre tu pedido?</p>
             <p class="mt-1">
-                <i class="fas fa-phone mr-1"></i>+507 6123-4567 | 
+                <i class="fas fa-phone mr-1"></i>+507 6008-6038 | 
                 <i class="fas fa-envelope mr-1"></i>info@autopartes.com
             </p>
         </div>
