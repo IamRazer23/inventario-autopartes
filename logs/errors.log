@@ -502,3 +502,490 @@
 [2025-12-11 11:13:25] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\controllers\PublicController.php línea 119
 [2025-12-11 11:13:25] [CRITICAL] Exception: htmlspecialchars(): Argument #1 ($string) must be of type string, array given en C:\xampp\htdocs\inventario-autopartes\views\layouts\header.php línea 305
 [2025-12-11 11:13:29] [CRITICAL] Exception: htmlspecialchars(): Argument #1 ($string) must be of type string, array given en C:\xampp\htdocs\inventario-autopartes\views\layouts\header.php línea 305
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:57:51] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:57:57] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\controllers\PublicController.php línea 119
+[2025-12-11 20:57:57] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:57:57] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:57:57] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:57:57] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:57:57] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:57:57] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:57:57] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:57:57] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:57:57] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:57:57] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:57:57] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:57:57] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:57:57] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:57:57] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:57:57] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:57:57] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:57:57] [CRITICAL] Exception: htmlspecialchars(): Argument #1 ($string) must be of type string, array given en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 123
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:06] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:10] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 20
+[2025-12-11 20:58:10] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
+[2025-12-11 20:58:10] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 190
+[2025-12-11 20:58:10] [CRITICAL] Exception: Undefined constant "SITE_URL" en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 207
+[2025-12-11 20:58:23] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\controllers\PublicController.php línea 119
+[2025-12-11 20:58:23] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:23] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:23] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:23] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:23] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:23] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:23] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:23] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:23] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:23] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:23] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:23] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:23] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:23] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:23] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:23] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:23] [CRITICAL] Exception: htmlspecialchars(): Argument #1 ($string) must be of type string, array given en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 123
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\controllers\PublicController.php línea 119
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:24] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:24] [CRITICAL] Exception: htmlspecialchars(): Argument #1 ($string) must be of type string, array given en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 123
+[2025-12-11 20:58:31] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\controllers\PublicController.php línea 119
+[2025-12-11 20:58:31] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:31] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:31] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:31] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:31] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:31] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:31] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:31] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:31] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:31] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:31] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:31] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:31] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:31] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:31] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:31] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:31] [CRITICAL] Exception: htmlspecialchars(): Argument #1 ($string) must be of type string, array given en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 123
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:32] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:35] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\controllers\PublicController.php línea 119
+[2025-12-11 20:58:35] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:35] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:35] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:35] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:35] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:35] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:35] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:35] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:35] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:35] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:35] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:35] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:35] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:35] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:35] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:35] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:35] [CRITICAL] Exception: htmlspecialchars(): Argument #1 ($string) must be of type string, array given en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 123
+[2025-12-11 20:58:38] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\controllers\PublicController.php línea 119
+[2025-12-11 20:58:38] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:38] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:38] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:38] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:38] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:38] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:38] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:38] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:38] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:38] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:38] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:38] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:38] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:38] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:38] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:38] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 20:58:38] [CRITICAL] Exception: htmlspecialchars(): Argument #1 ($string) must be of type string, array given en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 123
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:39] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 20:58:42] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:03:53] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:52] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:54] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:04:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 140
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 163
+[2025-12-11 21:05:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\home.php línea 170
+[2025-12-11 21:05:02] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\controllers\PublicController.php línea 123
+[2025-12-11 21:05:02] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:02] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:02] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:02] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:02] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:02] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:02] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:02] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:02] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:02] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:02] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:02] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:02] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:02] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:02] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:02] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:02] [CRITICAL] Exception: htmlspecialchars(): Argument #1 ($string) must be of type string, array given en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 123
+[2025-12-11 21:05:16] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\controllers\PublicController.php línea 123
+[2025-12-11 21:05:16] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:16] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:16] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:16] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:16] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:16] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:16] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:16] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:16] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:16] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:16] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:16] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:16] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:16] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:16] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:16] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 109
+[2025-12-11 21:05:16] [CRITICAL] Exception: htmlspecialchars(): Argument #1 ($string) must be of type string, array given en C:\xampp\htdocs\inventario-autopartes\views\public\catalogo.php línea 123
+[2025-12-11 21:08:34] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
+[2025-12-11 21:08:34] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 190
+[2025-12-11 21:08:34] [CRITICAL] Exception: Undefined constant "SITE_URL" en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 207
+[2025-12-11 21:11:27] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
+[2025-12-11 21:11:27] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 190
+[2025-12-11 21:11:27] [CRITICAL] Exception: Undefined constant "SITE_URL" en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 207
+[2025-12-11 21:14:58] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
+[2025-12-11 21:14:58] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 190
+[2025-12-11 21:14:58] [CRITICAL] Exception: Undefined constant "SITE_URL" en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 207
+[2025-12-11 21:16:30] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
+[2025-12-11 21:16:30] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 190
+[2025-12-11 21:16:30] [CRITICAL] Exception: Undefined constant "SITE_URL" en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 207
+[2025-12-11 21:23:33] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
+[2025-12-11 21:23:33] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 190
+[2025-12-11 21:23:33] [CRITICAL] Exception: Undefined constant "SITE_URL" en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 207
+[2025-12-11 21:26:04] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
+[2025-12-11 21:26:04] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 190
+[2025-12-11 21:26:04] [CRITICAL] Exception: Undefined constant "SITE_URL" en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 207
+[2025-12-11 21:26:33] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
+[2025-12-11 21:26:33] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 190
+[2025-12-11 21:26:33] [CRITICAL] Exception: Undefined constant "SITE_URL" en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 207
+[2025-12-11 22:54:19] [CRITICAL] Exception: htmlspecialchars(): Argument #1 ($string) must be of type string, array given en C:\xampp\htdocs\inventario-autopartes\views\layouts\header.php línea 305
+[2025-12-11 22:54:25] [CRITICAL] Exception: htmlspecialchars(): Argument #1 ($string) must be of type string, array given en C:\xampp\htdocs\inventario-autopartes\views\layouts\header.php línea 305
+[2025-12-11 22:54:25] [CRITICAL] Exception: htmlspecialchars(): Argument #1 ($string) must be of type string, array given en C:\xampp\htdocs\inventario-autopartes\views\layouts\header.php línea 305
+[2025-12-11 22:59:28] [CRITICAL] Exception: syntax error, unexpected token "endif", expecting end of file en C:\xampp\htdocs\inventario-autopartes\views\layouts\header.php línea 318
+[2025-12-11 22:59:34] [CRITICAL] Exception: htmlspecialchars(): Argument #1 ($string) must be of type string, array given en C:\xampp\htdocs\inventario-autopartes\views\layouts\header.php línea 305
+[2025-12-11 22:59:53] [CRITICAL] Exception: htmlspecialchars(): Argument #1 ($string) must be of type string, array given en C:\xampp\htdocs\inventario-autopartes\views\layouts\header.php línea 305
+[2025-12-11 22:59:54] [CRITICAL] Exception: htmlspecialchars(): Argument #1 ($string) must be of type string, array given en C:\xampp\htdocs\inventario-autopartes\views\layouts\header.php línea 305
+[2025-12-11 22:59:54] [CRITICAL] Exception: htmlspecialchars(): Argument #1 ($string) must be of type string, array given en C:\xampp\htdocs\inventario-autopartes\views\layouts\header.php línea 305
+[2025-12-11 22:59:55] [CRITICAL] Exception: htmlspecialchars(): Argument #1 ($string) must be of type string, array given en C:\xampp\htdocs\inventario-autopartes\views\layouts\header.php línea 305
+[2025-12-11 22:59:57] [CRITICAL] Exception: htmlspecialchars(): Argument #1 ($string) must be of type string, array given en C:\xampp\htdocs\inventario-autopartes\views\layouts\header.php línea 305
+[2025-12-11 22:59:58] [CRITICAL] Exception: htmlspecialchars(): Argument #1 ($string) must be of type string, array given en C:\xampp\htdocs\inventario-autopartes\views\layouts\header.php línea 305
+[2025-12-11 23:00:00] [CRITICAL] Exception: htmlspecialchars(): Argument #1 ($string) must be of type string, array given en C:\xampp\htdocs\inventario-autopartes\views\layouts\header.php línea 305
+[2025-12-11 23:00:02] [CRITICAL] Exception: htmlspecialchars(): Argument #1 ($string) must be of type string, array given en C:\xampp\htdocs\inventario-autopartes\views\layouts\header.php línea 305
+[2025-12-11 23:07:46] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
+[2025-12-11 23:07:46] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 190
+[2025-12-11 23:07:46] [CRITICAL] Exception: Undefined constant "SITE_URL" en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 207
+[2025-12-11 23:07:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
+[2025-12-11 23:07:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 190
+[2025-12-11 23:07:59] [CRITICAL] Exception: Undefined constant "SITE_URL" en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 207
+[2025-12-12 00:20:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
+[2025-12-12 00:20:59] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 190
+[2025-12-12 00:20:59] [CRITICAL] Exception: Undefined constant "SITE_URL" en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 207
+[2025-12-12 00:24:03] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\controllers\CarritoController.php línea 80
+[2025-12-12 00:24:03] [CRITICAL] Exception: Failed opening required 'C:\xampp\htdocs\inventario-autopartes/views/cliente/carrito.php' (include_path='C:\xampp\php\PEAR') en C:\xampp\htdocs\inventario-autopartes\controllers\CarritoController.php línea 80
+[2025-12-12 00:24:13] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\controllers\CarritoController.php línea 80
+[2025-12-12 00:24:13] [CRITICAL] Exception: Failed opening required 'C:\xampp\htdocs\inventario-autopartes/views/cliente/carrito.php' (include_path='C:\xampp\php\PEAR') en C:\xampp\htdocs\inventario-autopartes\controllers\CarritoController.php línea 80
+[2025-12-12 00:25:00] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\controllers\CarritoController.php línea 80
+[2025-12-12 00:25:00] [CRITICAL] Exception: Failed opening required 'C:\xampp\htdocs\inventario-autopartes/views/cliente/Carrito.php' (include_path='C:\xampp\php\PEAR') en C:\xampp\htdocs\inventario-autopartes\controllers\CarritoController.php línea 80
+[2025-12-12 00:28:08] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
+[2025-12-12 00:28:08] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 190
+[2025-12-12 00:28:08] [CRITICAL] Exception: Undefined constant "SITE_URL" en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 207
+[2025-12-12 00:28:14] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
+[2025-12-12 00:28:14] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 190
+[2025-12-12 00:28:14] [CRITICAL] Exception: Undefined constant "SITE_URL" en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 207
+[2025-12-12 00:28:27] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
+[2025-12-12 00:28:27] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 190
+[2025-12-12 00:28:27] [CRITICAL] Exception: Undefined constant "SITE_URL" en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 207
+[2025-12-12 00:28:57] [CRITICAL] Exception: Call to undefined method PublicController::categoria() en C:\xampp\htdocs\inventario-autopartes\index.php línea 445
+[2025-12-12 00:29:39] [CRITICAL] Exception: Call to undefined method PublicController::categoria() en C:\xampp\htdocs\inventario-autopartes\index.php línea 445
+[2025-12-12 00:29:55] [CRITICAL] Exception: Call to undefined method PublicController::categoria() en C:\xampp\htdocs\inventario-autopartes\index.php línea 445
+[2025-12-12 08:26:36] [CRITICAL] Exception: Call to undefined method ClienteController::perfil() en C:\xampp\htdocs\inventario-autopartes\index.php línea 327
+[2025-12-12 08:26:47] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
+[2025-12-12 08:26:47] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 190
+[2025-12-12 08:26:47] [CRITICAL] Exception: Undefined constant "SITE_URL" en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 207
+[2025-12-12 08:33:22] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
+[2025-12-12 08:34:07] [CRITICAL] Exception: Call to undefined method ClienteController::perfil() en C:\xampp\htdocs\inventario-autopartes\index.php línea 327
+[2025-12-12 08:36:30] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
+[2025-12-12 08:36:38] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
+[2025-12-12 08:36:58] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
+[2025-12-12 08:37:12] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
+[2025-12-12 08:37:16] [CRITICAL] Exception: Call to undefined method PublicController::categoria() en C:\xampp\htdocs\inventario-autopartes\index.php línea 445
+[2025-12-12 08:37:19] [CRITICAL] Exception: Call to undefined method PublicController::categoria() en C:\xampp\htdocs\inventario-autopartes\index.php línea 445
+[2025-12-12 08:37:43] [ERROR] Error: 2 en C:\xampp\htdocs\inventario-autopartes\views\public\detalle.php línea 55
+[2025-12-12 08:38:09] [CRITICAL] Exception: Call to undefined method ClienteController::perfil() en C:\xampp\htdocs\inventario-autopartes\index.php línea 327

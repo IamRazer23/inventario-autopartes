@@ -130,50 +130,51 @@
                     <?php if (isAuthenticated()): ?>
                         
                         <?php if (hasRole(ROL_CLIENTE)): ?>
-                            <!-- Carrito -->
-                            <a href="<?= BASE_URL ?>/index.php?module=carrito&action=ver" class="relative group flex items-center">
-                                <div class="relative">
-                                    <i class="fas fa-shopping-cart text-gray-600 group-hover:text-indigo-600 text-xl transition-colors"></i>
-                                    <?php $totalItems = $_SESSION['carrito_items'] ?? 0; ?>
-                                    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
-                                        <?= $totalItems ?>
-                                    </span>
-                                </div>
-                                <span class="hidden md:inline-block ml-2 text-sm text-gray-600 group-hover:text-indigo-600 transition-colors">Carrito</span>
-                            </a>
-                        <?php endif; ?>
+    <!-- Carrito -->
+    <a href="<?= BASE_URL ?>/index.php?module=carrito&action=ver" class="relative group flex items-center">
+        <div class="relative">
+            <i class="fas fa-shopping-cart text-gray-600 group-hover:text-indigo-600 text-xl transition-colors"></i>
+            <?php $totalItems = $_SESSION['carrito_items'] ?? 0; ?>
+            <span id="cart-count" 
+                  class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold <?= $totalItems == 0 ? 'hidden' : '' ?>">
+                <?= $totalItems ?>
+            </span>
+        </div>
+        <span class="hidden md:inline-block ml-2 text-sm text-gray-600 group-hover:text-indigo-600 transition-colors">Carrito</span>
+    </a>
+<?php endif; ?>
 
                         <!-- Dropdown usuario -->
                         <div class="relative dropdown">
                             <button class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors">
                                 <div class="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center">
-                                    <span class="text-white text-sm font-bold">
+                                    <span class="text-white font-bold text-sm">
                                         <?= strtoupper(substr($_SESSION['usuario_nombre'] ?? 'U', 0, 1)) ?>
                                     </span>
                                 </div>
                                 <div class="hidden md:block text-left">
-                                    <p class="text-sm font-semibold text-gray-800"><?= htmlspecialchars($_SESSION['usuario_nombre'] ?? 'Usuario') ?></p>
-                                    <p class="text-xs text-gray-500"><?= htmlspecialchars($_SESSION['rol_nombre'] ?? 'Cliente') ?></p>
+                                    <p class="text-sm font-medium text-gray-700"><?= htmlspecialchars($_SESSION['usuario_nombre'] ?? 'Usuario') ?></p>
+                                    <p class="text-xs text-gray-500"><?= htmlspecialchars($_SESSION['rol_nombre'] ?? 'Rol') ?></p>
                                 </div>
-                                <i class="fas fa-chevron-down text-gray-400 text-xs"></i>
+                                <i class="fas fa-chevron-down text-xs text-gray-400 hidden md:block"></i>
                             </button>
-                            
-                            <div class="dropdown-menu hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 py-2 animate-slide-down">
-                                <?php
+                            <div class="dropdown-menu hidden absolute right-0 mt-1 w-56 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50">
+                                <?php 
+                                // Determinar el módulo del usuario según su rol
                                 $userModule = 'cliente';
                                 if (hasRole(ROL_ADMINISTRADOR)) $userModule = 'admin';
                                 elseif (hasRole(ROL_OPERADOR)) $userModule = 'operador';
                                 ?>
                                 
+                                <div class="px-4 py-2 border-b border-gray-100">
+                                    <p class="text-sm font-medium text-gray-800"><?= htmlspecialchars($_SESSION['usuario_nombre'] ?? '') ?></p>
+                                    <p class="text-xs text-gray-500"><?= htmlspecialchars($_SESSION['usuario_email'] ?? '') ?></p>
+                                </div>
+                                
+                                <?php if (hasRole(ROL_ADMINISTRADOR) || hasRole(ROL_OPERADOR)): ?>
                                 <a href="<?= BASE_URL ?>/index.php?module=<?= $userModule ?>&action=dashboard" 
                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">
-                                    <i class="fas fa-tachometer-alt mr-2 w-4"></i>Dashboard
-                                </a>
-                                
-                                <?php if (hasRole(ROL_CLIENTE)): ?>
-                                <a href="<?= BASE_URL ?>/index.php?module=cliente&action=mis-compras" 
-                                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">
-                                    <i class="fas fa-shopping-bag mr-2 w-4"></i>Mis Compras
+                                    <i class="fas fa-tachometer-alt mr-2 w-4"></i>Panel de Control
                                 </a>
                                 <?php endif; ?>
                                 
@@ -288,8 +289,18 @@
     <!-- Main -->
     <main class="flex-1">
         <?php
+        // CORRECCIÓN: Verificar si flash_message es un array y acceder correctamente
         if (isset($_SESSION['flash_message'])):
-            $type = $_SESSION['flash_type'] ?? 'info';
+            // Soportar ambos formatos: array con type/message o string directo
+            if (is_array($_SESSION['flash_message'])) {
+                $type = $_SESSION['flash_message']['type'] ?? 'info';
+                $message = $_SESSION['flash_message']['message'] ?? '';
+            } else {
+                // Formato antiguo: string directo
+                $type = $_SESSION['flash_type'] ?? 'info';
+                $message = $_SESSION['flash_message'];
+            }
+            
             $alertConfig = [
                 'success' => ['bg' => 'bg-green-100', 'border' => 'border-green-400', 'text' => 'text-green-700', 'icon' => 'check-circle'],
                 'error' => ['bg' => 'bg-red-100', 'border' => 'border-red-400', 'text' => 'text-red-700', 'icon' => 'exclamation-circle'],
@@ -302,7 +313,7 @@
                 <div class="flash-message <?= $config['bg'] ?> border <?= $config['border'] ?> <?= $config['text'] ?> px-4 py-3 rounded-lg flex items-center justify-between" role="alert">
                     <div class="flex items-center">
                         <i class="fas fa-<?= $config['icon'] ?> mr-3"></i>
-                        <span><?= htmlspecialchars($_SESSION['flash_message']) ?></span>
+                        <span><?= htmlspecialchars($message) ?></span>
                     </div>
                     <button onclick="this.parentElement.remove()" class="text-xl leading-none hover:opacity-75">&times;</button>
                 </div>
