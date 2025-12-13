@@ -3,7 +3,7 @@
  * Archivo de Configuración Principal
  */
 
-define('DEV_MODE', false);
+define('DEV_MODE', true);
 
 // Zona horaria
 date_default_timezone_set('America/Panama');

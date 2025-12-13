@@ -327,26 +327,100 @@ switch ($module) {
             case 'inventario':
                 $controller->inventario();
                 break;
-                
-            case 'autoparte-crear':
-                $controller->autoparteCrear();
+            
+            case 'ver-autoparte':
+                $controller->verAutoparte();
                 break;
                 
-            case 'autoparte-editar':
-                $controller->autoparteEditar();
+            case 'crear-autoparte':
+                $controller->crearAutoparte();
+                break;
+            
+            case 'guardar-autoparte':
+                $controller->guardarAutoparte();
+                break;
+                
+            case 'editar-autoparte':
+                $controller->editarAutoparte();
+                break;
+            
+            case 'actualizar-autoparte':
+                $controller->actualizarAutoparte();
+                break;
+            
+            case 'actualizar-stock':
+                $controller->actualizarStock();
+                break;
+            
+            case 'buscar-autopartes':
+                $controller->buscarAutopartes();
+                break;
+            
+            case 'stock-bajo':
+                $controller->stockBajo();
+                break;
+            
+            // Restricción: NO puede eliminar autopartes
+            case 'eliminar-autoparte':
+                $controller->eliminarAutoparte();
                 break;
                 
             // === GESTIÓN DE COMENTARIOS ===
             case 'comentarios':
                 $controller->comentarios();
                 break;
-                
-            case 'comentario-aprobar':
-                $controller->comentarioAprobar();
+            
+            case 'ver-comentario':
+                $controller->verComentario();
+                break;
+            
+            case 'actualizar-comentario':
+                $controller->actualizarComentario();
                 break;
                 
-            case 'comentario-rechazar':
-                $controller->comentarioRechazar();
+            case 'eliminar-comentario':
+                $controller->eliminarComentario();
+                break;
+            
+            // === CONSULTAS (SOLO LECTURA) ===
+            case 'categorias':
+                $controller->categorias();
+                break;
+            
+            case 'ventas':
+                $controller->ventas();
+                break;
+            
+            case 'ver-venta':
+                $controller->verVenta();
+                break;
+            
+            // === PERFIL ===
+            case 'perfil':
+                $controller->perfil();
+                break;
+            
+            case 'actualizar-perfil':
+                $controller->actualizarPerfil();
+                break;
+            
+            // === RESTRICCIONES - Acciones bloqueadas ===
+            case 'usuarios':
+            case 'crear-usuario':
+            case 'editar-usuario':
+            case 'eliminar-usuario':
+                $controller->usuarios();
+                break;
+            
+            case 'crear-categoria':
+            case 'editar-categoria':
+            case 'eliminar-categoria':
+                $controller->crearCategoria();
+                break;
+            
+            case 'estadisticas':
+            case 'reportes':
+                $controller->estadisticas();
                 break;
                 
             default:

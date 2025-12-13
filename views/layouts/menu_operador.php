@@ -13,7 +13,6 @@
             </li>
 
             <!-- Inventario -->
-            <?php if (hasPermission('inventario', 'leer')): ?>
             <li class="relative dropdown group">
                 <button class="flex items-center space-x-2 px-4 py-3 text-white hover:bg-blue-800 rounded-lg transition-colors whitespace-nowrap">
                     <i class="fas fa-warehouse"></i>
@@ -28,51 +27,44 @@
                         <i class="fas fa-list mr-2 w-4"></i>
                         Ver Inventario
                     </a>
-                    <?php if (hasPermission('inventario', 'crear')): ?>
-                    <a href="<?= BASE_URL ?>/index.php?module=operador&action=inventario-agregar" 
+                    <a href="<?= BASE_URL ?>/index.php?module=operador&action=crear-autoparte" 
                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
                         <i class="fas fa-plus mr-2 w-4"></i>
                         Agregar Autoparte
                     </a>
-                    <?php endif; ?>
-                    <a href="<?= BASE_URL ?>/index.php?module=operador&action=inventario-buscar" 
-                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                        <i class="fas fa-search mr-2 w-4"></i>
-                        Buscar Piezas
-                    </a>
-                    <a href="<?= BASE_URL ?>/index.php?module=operador&action=inventario-bajo" 
+                    <a href="<?= BASE_URL ?>/index.php?module=operador&action=stock-bajo" 
                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
                         <i class="fas fa-exclamation-triangle mr-2 w-4 text-yellow-500"></i>
                         Stock Bajo
                     </a>
                 </div>
             </li>
-            <?php endif; ?>
 
             <!-- Categorías (solo lectura) -->
-            <?php if (hasPermission('categorias', 'leer')): ?>
             <li>
                 <a href="<?= BASE_URL ?>/index.php?module=operador&action=categorias" 
                    class="flex items-center space-x-2 px-4 py-3 text-white hover:bg-blue-800 rounded-lg transition-colors whitespace-nowrap <?= (isset($_GET['action']) && $_GET['action'] == 'categorias') ? 'bg-blue-800' : '' ?>">
                     <i class="fas fa-tags"></i>
                     <span class="font-medium">Categorías</span>
+                    <span class="text-xs bg-yellow-500 text-white px-1 rounded ml-1" title="Solo lectura">
+                        <i class="fas fa-lock text-xs"></i>
+                    </span>
                 </a>
             </li>
-            <?php endif; ?>
 
-            <!-- Ventas -->
-            <?php if (hasPermission('ventas', 'leer')): ?>
+            <!-- Ventas (solo lectura) -->
             <li>
                 <a href="<?= BASE_URL ?>/index.php?module=operador&action=ventas" 
                    class="flex items-center space-x-2 px-4 py-3 text-white hover:bg-blue-800 rounded-lg transition-colors whitespace-nowrap <?= (isset($_GET['action']) && $_GET['action'] == 'ventas') ? 'bg-blue-800' : '' ?>">
                     <i class="fas fa-shopping-bag"></i>
                     <span class="font-medium">Ventas</span>
+                    <span class="text-xs bg-yellow-500 text-white px-1 rounded ml-1" title="Solo lectura">
+                        <i class="fas fa-lock text-xs"></i>
+                    </span>
                 </a>
             </li>
-            <?php endif; ?>
 
             <!-- Comentarios -->
-            <?php if (hasPermission('comentarios', 'leer')): ?>
             <li>
                 <a href="<?= BASE_URL ?>/index.php?module=operador&action=comentarios" 
                    class="flex items-center space-x-2 px-4 py-3 text-white hover:bg-blue-800 rounded-lg transition-colors whitespace-nowrap <?= (isset($_GET['action']) && $_GET['action'] == 'comentarios') ? 'bg-blue-800' : '' ?>">
@@ -80,15 +72,22 @@
                     <span class="font-medium">Comentarios</span>
                 </a>
             </li>
-            <?php endif; ?>
 
-            <!-- Ver catálogo público -->
-            <li class="ml-auto">
+            <!-- Separador y opciones del usuario -->
+            <li class="ml-auto flex items-center space-x-2">
+                <!-- Ver catálogo público -->
                 <a href="<?= BASE_URL ?>/index.php?module=public&action=catalogo" 
                    class="flex items-center space-x-2 px-4 py-3 text-white hover:bg-blue-800 rounded-lg transition-colors whitespace-nowrap"
                    target="_blank">
                     <i class="fas fa-external-link-alt"></i>
                     <span class="font-medium">Ver Catálogo</span>
+                </a>
+                
+                <!-- Mi Perfil -->
+                <a href="<?= BASE_URL ?>/index.php?module=operador&action=perfil" 
+                   class="flex items-center space-x-2 px-4 py-3 text-white hover:bg-blue-800 rounded-lg transition-colors whitespace-nowrap <?= (isset($_GET['action']) && $_GET['action'] == 'perfil') ? 'bg-blue-800' : '' ?>">
+                    <i class="fas fa-user-circle"></i>
+                    <span class="font-medium">Mi Perfil</span>
                 </a>
             </li>
 

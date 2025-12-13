@@ -325,19 +325,29 @@ document.getElementById('form-carrito')?.addEventListener('submit', function(e) 
     
     fetch('<?= BASE_URL ?>/index.php?module=carrito&action=agregar', {
         method: 'POST',
-        body: formData
+        body: formData,
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+        }
     })
     .then(response => response.json())
     .then(data => {
         const msg = document.getElementById('mensaje-carrito');
         if (data.success) {
             msg.innerHTML = '<div class="bg-green-100 text-green-700 px-4 py-2 rounded-lg"><i class="fas fa-check-circle mr-2"></i>' + data.message + '</div>';
-            if (document.getElementById('cart-count')) {
-                document.getElementById('cart-count').textContent = data.total_items;
+            // Actualizar contador del carrito
+            const cartCount = document.getElementById('cart-count');
+            if (cartCount && data.cart_count !== undefined) {
+                cartCount.textContent = data.cart_count;
+                cartCount.classList.remove('hidden');
             }
         } else {
             msg.innerHTML = '<div class="bg-red-100 text-red-700 px-4 py-2 rounded-lg"><i class="fas fa-exclamation-circle mr-2"></i>' + data.message + '</div>';
         }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        document.getElementById('mensaje-carrito').innerHTML = '<div class="bg-red-100 text-red-700 px-4 py-2 rounded-lg"><i class="fas fa-exclamation-circle mr-2"></i>Error al procesar la solicitud</div>';
     });
 });
 

@@ -22,7 +22,7 @@ class Autoparte {
     public $precio;
     public $stock;
     public $categoria_id;
-    public $imagen_thumb;
+    public $thumbnail;
     public $imagen_grande;
     public $estado;
     public $fecha_creacion;
@@ -52,11 +52,11 @@ class Autoparte {
             $query = "INSERT INTO autopartes (
                         nombre, descripcion, marca, modelo, anio, 
                         precio, stock, categoria_id,
-                        imagen_thumb, imagen_grande, estado, usuario_id
+                        thumbnail, imagen_grande, estado, usuario_id
                     ) VALUES (
                         :nombre, :descripcion, :marca, :modelo, :anio,
                         :precio, :stock, :categoria_id,
-                        :imagen_thumb, :imagen_grande, :estado, :usuario_id
+                        :thumbnail, :imagen_grande, :estado, :usuario_id
                     )";
             
             $stmt = $this->db->prepare($query);
@@ -69,7 +69,7 @@ class Autoparte {
             $stmt->bindParam(':precio', $this->precio);
             $stmt->bindParam(':stock', $this->stock, PDO::PARAM_INT);
             $stmt->bindParam(':categoria_id', $this->categoria_id, PDO::PARAM_INT);
-            $stmt->bindParam(':imagen_thumb', $this->imagen_thumb);
+            $stmt->bindParam(':thumbnail', $this->thumbnail);
             $stmt->bindParam(':imagen_grande', $this->imagen_grande);
             $stmt->bindParam(':estado', $this->estado, PDO::PARAM_INT);
             $stmt->bindParam(':usuario_id', $this->usuario_id, PDO::PARAM_INT);
@@ -121,7 +121,7 @@ class Autoparte {
     public function obtenerTodos($filtros = []) {
         try {
             $query = "SELECT a.*, 
-                            c.nombre as categoria_nombre,
+                            c.nombre as categoria_nombre
                      FROM autopartes a 
                      LEFT JOIN categorias c ON a.categoria_id = c.id 
                      WHERE 1=1";
@@ -257,8 +257,8 @@ class Autoparte {
                         fecha_actualizacion = CURRENT_TIMESTAMP";
             
             // Si hay nuevas imágenes, actualizarlas
-            if (!empty($this->imagen_thumb)) {
-                $query .= ", imagen_thumb = :imagen_thumb";
+            if (!empty($this->thumbnail)) {
+                $query .= ", thumbnail = :thumbnail";
             }
             if (!empty($this->imagen_grande)) {
                 $query .= ", imagen_grande = :imagen_grande";
@@ -279,8 +279,8 @@ class Autoparte {
             $stmt->bindParam(':estado', $this->estado, PDO::PARAM_INT);
             $stmt->bindParam(':id', $this->id, PDO::PARAM_INT);
             
-            if (!empty($this->imagen_thumb)) {
-                $stmt->bindParam(':imagen_thumb', $this->imagen_thumb);
+            if (!empty($this->thumbnail)) {
+                $stmt->bindParam(':thumbnail', $this->thumbnail);
             }
             if (!empty($this->imagen_grande)) {
                 $stmt->bindParam(':imagen_grande', $this->imagen_grande);
@@ -507,6 +507,39 @@ class Autoparte {
             if (isset($filtros['categoria_id']) && $filtros['categoria_id'] !== '') {
                 $query .= " AND categoria_id = :categoria_id";
                 $params[':categoria_id'] = $filtros['categoria_id'];
+            }
+            
+            if (isset($filtros['marca']) && $filtros['marca'] !== '') {
+                $query .= " AND marca LIKE :marca";
+                $params[':marca'] = '%' . $filtros['marca'] . '%';
+            }
+            
+            if (isset($filtros['modelo']) && $filtros['modelo'] !== '') {
+                $query .= " AND modelo LIKE :modelo";
+                $params[':modelo'] = '%' . $filtros['modelo'] . '%';
+            }
+            
+            if (isset($filtros['anio']) && $filtros['anio'] !== '') {
+                $query .= " AND anio = :anio";
+                $params[':anio'] = $filtros['anio'];
+            }
+            
+            if (isset($filtros['precio_min']) && $filtros['precio_min'] !== '') {
+                $query .= " AND precio >= :precio_min";
+                $params[':precio_min'] = $filtros['precio_min'];
+            }
+            
+            if (isset($filtros['precio_max']) && $filtros['precio_max'] !== '') {
+                $query .= " AND precio <= :precio_max";
+                $params[':precio_max'] = $filtros['precio_max'];
+            }
+            
+            if (isset($filtros['buscar']) && $filtros['buscar'] !== '') {
+                $query .= " AND (nombre LIKE :buscar OR descripcion LIKE :buscar2 OR marca LIKE :buscar3 OR modelo LIKE :buscar4)";
+                $params[':buscar'] = '%' . $filtros['buscar'] . '%';
+                $params[':buscar2'] = '%' . $filtros['buscar'] . '%';
+                $params[':buscar3'] = '%' . $filtros['buscar'] . '%';
+                $params[':buscar4'] = '%' . $filtros['buscar'] . '%';
             }
             
             if (isset($filtros['stock_bajo']) && $filtros['stock_bajo']) {

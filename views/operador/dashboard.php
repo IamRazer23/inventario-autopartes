@@ -107,9 +107,15 @@ require_once VIEWS_PATH . '/layouts/header.php';
                         <?php foreach ($stockBajo as $item): ?>
                             <div class="flex items-center space-x-4 p-3 bg-red-50 rounded-lg hover:bg-red-100 transition-colors">
                                 <?php if ($item['thumbnail']): ?>
-                                    <img src="<?= UPLOADS_URL ?>/thumbs/<?= e($item['thumbnail']) ?>" 
-                                         alt="<?= e($item['nombre']) ?>"
-                                         class="w-12 h-12 object-cover rounded-lg">
+                                    <?php if (filter_var($item['thumbnail'], FILTER_VALIDATE_URL)): ?>
+                                        <img src="<?= e($item['thumbnail']) ?>" 
+                                             alt="<?= e($item['nombre']) ?>"
+                                             class="w-12 h-12 object-cover rounded-lg">
+                                    <?php else: ?>
+                                        <img src="<?= UPLOADS_URL ?>/thumbs/<?= e($item['thumbnail']) ?>" 
+                                             alt="<?= e($item['nombre']) ?>"
+                                             class="w-12 h-12 object-cover rounded-lg">
+                                    <?php endif; ?>
                                 <?php else: ?>
                                     <div class="w-12 h-12 bg-gray-300 rounded-lg flex items-center justify-center">
                                         <i class="fas fa-image text-gray-500"></i>
@@ -134,15 +140,19 @@ require_once VIEWS_PATH . '/layouts/header.php';
                                         <i class="fas fa-box mr-1"></i>
                                         <?= $item['stock'] ?>
                                     </span>
+                                    <a href="<?= BASE_URL ?>/index.php?module=operador&action=editar-autoparte&id=<?= $item['id'] ?>" 
+                                       class="block mt-1 text-xs text-blue-600 hover:text-blue-800">
+                                        <i class="fas fa-edit"></i> Editar
+                                    </a>
                                 </div>
                             </div>
                         <?php endforeach; ?>
                     </div>
                     
                     <div class="mt-4 pt-4 border-t border-gray-200">
-                        <a href="<?= BASE_URL ?>/index.php?module=admin&action=inventario" 
+                        <a href="<?= BASE_URL ?>/index.php?module=operador&action=stock-bajo" 
                            class="text-red-600 hover:text-red-800 font-semibold text-sm flex items-center justify-center">
-                            Ver todo el inventario
+                            Ver todas las alertas de stock
                             <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
@@ -171,9 +181,15 @@ require_once VIEWS_PATH . '/layouts/header.php';
                         <?php foreach ($autopartesRecientes as $autoparte): ?>
                             <div class="flex items-center space-x-4 p-3 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
                                 <?php if ($autoparte['thumbnail']): ?>
-                                    <img src="<?= UPLOADS_URL ?>/thumbs/<?= e($autoparte['thumbnail']) ?>" 
-                                         alt="<?= e($autoparte['nombre']) ?>"
-                                         class="w-12 h-12 object-cover rounded-lg">
+                                    <?php if (filter_var($autoparte['thumbnail'], FILTER_VALIDATE_URL)): ?>
+                                        <img src="<?= e($autoparte['thumbnail']) ?>" 
+                                             alt="<?= e($autoparte['nombre']) ?>"
+                                             class="w-12 h-12 object-cover rounded-lg">
+                                    <?php else: ?>
+                                        <img src="<?= UPLOADS_URL ?>/thumbs/<?= e($autoparte['thumbnail']) ?>" 
+                                             alt="<?= e($autoparte['nombre']) ?>"
+                                             class="w-12 h-12 object-cover rounded-lg">
+                                    <?php endif; ?>
                                 <?php else: ?>
                                     <div class="w-12 h-12 bg-gray-300 rounded-lg flex items-center justify-center">
                                         <i class="fas fa-image text-gray-500"></i>
@@ -200,6 +216,10 @@ require_once VIEWS_PATH . '/layouts/header.php';
                                     <p class="text-xs text-blue-600">
                                         <?= e($autoparte['categoria']) ?>
                                     </p>
+                                    <a href="<?= BASE_URL ?>/index.php?module=operador&action=ver-autoparte&id=<?= $autoparte['id'] ?>" 
+                                       class="text-xs text-blue-600 hover:text-blue-800">
+                                        Ver detalle →
+                                    </a>
                                 </div>
                             </div>
                         <?php endforeach; ?>
@@ -222,30 +242,88 @@ require_once VIEWS_PATH . '/layouts/header.php';
             Accesos Rápidos
         </h3>
         
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <a href="<?= BASE_URL ?>/index.php?module=admin&action=inventario" 
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <a href="<?= BASE_URL ?>/index.php?module=operador&action=inventario" 
                class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-lg p-4 text-center transition-all transform hover:scale-105">
                 <i class="fas fa-list text-3xl mb-2"></i>
                 <p class="font-semibold">Ver Inventario</p>
             </a>
             
-            <a href="<?= BASE_URL ?>/index.php?module=admin&action=inventario-agregar" 
+            <a href="<?= BASE_URL ?>/index.php?module=operador&action=crear-autoparte" 
                class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-lg p-4 text-center transition-all transform hover:scale-105">
                 <i class="fas fa-plus-circle text-3xl mb-2"></i>
-                <p class="font-semibold">Agregar Autoparte</p>
+                <p class="font-semibold">Nueva Autoparte</p>
             </a>
             
-            <a href="<?= BASE_URL ?>/index.php?module=admin&action=categorias" 
+            <a href="<?= BASE_URL ?>/index.php?module=operador&action=categorias" 
                class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-lg p-4 text-center transition-all transform hover:scale-105">
                 <i class="fas fa-tags text-3xl mb-2"></i>
                 <p class="font-semibold">Categorías</p>
+                <span class="text-xs opacity-75">(Solo lectura)</span>
+            </a>
+            
+            <a href="<?= BASE_URL ?>/index.php?module=operador&action=ventas" 
+               class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-lg p-4 text-center transition-all transform hover:scale-105">
+                <i class="fas fa-shopping-cart text-3xl mb-2"></i>
+                <p class="font-semibold">Ver Ventas</p>
+                <span class="text-xs opacity-75">(Solo lectura)</span>
+            </a>
+            
+            <a href="<?= BASE_URL ?>/index.php?module=operador&action=comentarios" 
+               class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-lg p-4 text-center transition-all transform hover:scale-105">
+                <i class="fas fa-comments text-3xl mb-2"></i>
+                <p class="font-semibold">Comentarios</p>
             </a>
             
             <a href="<?= BASE_URL ?>/index.php?module=public&action=catalogo" 
-               class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-lg p-4 text-center transition-all transform hover:scale-105">
+               class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-lg p-4 text-center transition-all transform hover:scale-105"
+               target="_blank">
                 <i class="fas fa-eye text-3xl mb-2"></i>
                 <p class="font-semibold">Ver Catálogo</p>
             </a>
+        </div>
+    </div>
+    
+    <!-- Información de Permisos -->
+    <div class="mt-8 bg-white rounded-xl shadow-md p-6">
+        <h3 class="text-lg font-semibold text-gray-800 mb-4">
+            <i class="fas fa-shield-alt text-blue-600 mr-2"></i>
+            Resumen de Permisos de Operador
+        </h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Lo que puede hacer -->
+            <div class="bg-green-50 rounded-lg p-4">
+                <h4 class="font-semibold text-green-700 mb-3">
+                    <i class="fas fa-check-circle mr-2"></i>
+                    Acciones Permitidas
+                </h4>
+                <ul class="space-y-2 text-sm text-green-700">
+                    <li><i class="fas fa-check mr-2"></i>Crear nuevas autopartes</li>
+                    <li><i class="fas fa-check mr-2"></i>Ver y editar autopartes existentes</li>
+                    <li><i class="fas fa-check mr-2"></i>Actualizar stock del inventario</li>
+                    <li><i class="fas fa-check mr-2"></i>Subir imágenes de autopartes</li>
+                    <li><i class="fas fa-check mr-2"></i>Gestionar comentarios (leer, editar, eliminar)</li>
+                    <li><i class="fas fa-check mr-2"></i>Ver categorías (solo lectura)</li>
+                    <li><i class="fas fa-check mr-2"></i>Ver historial de ventas (solo lectura)</li>
+                </ul>
+            </div>
+            
+            <!-- Lo que NO puede hacer -->
+            <div class="bg-red-50 rounded-lg p-4">
+                <h4 class="font-semibold text-red-700 mb-3">
+                    <i class="fas fa-times-circle mr-2"></i>
+                    Acciones Restringidas
+                </h4>
+                <ul class="space-y-2 text-sm text-red-700">
+                    <li><i class="fas fa-times mr-2"></i>Gestionar usuarios del sistema</li>
+                    <li><i class="fas fa-times mr-2"></i>Crear, editar o eliminar categorías</li>
+                    <li><i class="fas fa-times mr-2"></i>Eliminar autopartes del inventario</li>
+                    <li><i class="fas fa-times mr-2"></i>Crear o eliminar ventas</li>
+                    <li><i class="fas fa-times mr-2"></i>Acceder a estadísticas completas</li>
+                    <li><i class="fas fa-times mr-2"></i>Generar reportes avanzados</li>
+                </ul>
+            </div>
         </div>
     </div>
 

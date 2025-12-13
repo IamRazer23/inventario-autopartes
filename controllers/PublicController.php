@@ -75,60 +75,58 @@ class PublicController {
             $porPagina = defined('ITEMS_PER_PAGE') ? ITEMS_PER_PAGE : 12;
             $offset = ($pagina - 1) * $porPagina;
             
-            // Construir query base
-            $query = "SELECT 
-                a.id, a.nombre, a.marca, a.modelo, a.anio, a.precio, a.stock, 
-                a.thumbnail as imagen_thumb,
-                c.nombre as categoria_nombre, c.id as categoria_id
-                FROM autopartes a
-                INNER JOIN categorias c ON a.categoria_id = c.id
-                WHERE a.estado = 1";
-            
+            // Construir WHERE clause común
+            $whereClause = "WHERE a.estado = 1";
             $params = [];
             
             // Aplicar filtros
             if (!empty($filtros['categoria_id'])) {
-                $query .= " AND c.id = :categoria_id";
+                $whereClause .= " AND c.id = :categoria_id";
                 $params[':categoria_id'] = $filtros['categoria_id'];
             }
             
             if (!empty($filtros['marca'])) {
-                $query .= " AND a.marca = :marca";
+                $whereClause .= " AND a.marca = :marca";
                 $params[':marca'] = $filtros['marca'];
             }
             
             if (!empty($filtros['buscar'])) {
                 $buscar = '%' . $filtros['buscar'] . '%';
-                $query .= " AND (a.nombre LIKE :buscar_nombre OR a.marca LIKE :buscar_marca OR a.modelo LIKE :buscar_modelo)";
+                $whereClause .= " AND (a.nombre LIKE :buscar_nombre OR a.marca LIKE :buscar_marca OR a.modelo LIKE :buscar_modelo)";
                 $params[':buscar_nombre'] = $buscar;
                 $params[':buscar_marca'] = $buscar;
                 $params[':buscar_modelo'] = $buscar;
             }
             
             if (!empty($filtros['anio'])) {
-                $query .= " AND a.anio = :anio";
+                $whereClause .= " AND a.anio = :anio";
                 $params[':anio'] = $filtros['anio'];
             }
             
             if (!empty($filtros['precio_min'])) {
-                $query .= " AND a.precio >= :precio_min";
+                $whereClause .= " AND a.precio >= :precio_min";
                 $params[':precio_min'] = $filtros['precio_min'];
             }
             
             if (!empty($filtros['precio_max'])) {
-                $query .= " AND a.precio <= :precio_max";
+                $whereClause .= " AND a.precio <= :precio_max";
                 $params[':precio_max'] = $filtros['precio_max'];
             }
             
-            // Contar total para paginación
-            $queryCount = preg_replace(
-                '/SELECT .* FROM/',
-                'SELECT COUNT(DISTINCT a.id) as total FROM',
-                $query
-            );
+            // Query para contar total
+            $queryCount = "SELECT COUNT(*) as total 
+                           FROM autopartes a
+                           INNER JOIN categorias c ON a.categoria_id = c.id
+                           $whereClause";
             
-            $totalAutopartes = $db->fetchOne($queryCount, $params)['total'] ?? 0;
-            $totalPaginas = ceil($totalAutopartes / $porPagina);
+            $stmtCount = $db->getConnection()->prepare($queryCount);
+            foreach ($params as $key => $value) {
+                $stmtCount->bindValue($key, $value);
+            }
+            $stmtCount->execute();
+            $resultCount = $stmtCount->fetch(PDO::FETCH_ASSOC);
+            $totalAutopartes = $resultCount ? (int)$resultCount['total'] : 0;
+            $totalPaginas = $totalAutopartes > 0 ? ceil($totalAutopartes / $porPagina) : 1;
             
             // Ordenamiento
             $ordenValido = ['fecha_creacion', 'precio', 'nombre', 'marca'];
@@ -137,18 +135,23 @@ class PublicController {
             $orden = in_array($filtros['orden'], $ordenValido) ? $filtros['orden'] : 'fecha_creacion';
             $direccion = in_array($filtros['direccion'], $direccionValida) ? $filtros['direccion'] : 'DESC';
             
-            $query .= " ORDER BY a.{$orden} {$direccion}";
+            // Query para obtener autopartes
+            $query = "SELECT 
+                a.id, a.nombre, a.marca, a.modelo, a.anio, a.precio, a.stock, 
+                a.thumbnail as imagen_thumb,
+                c.nombre as categoria_nombre, c.id as categoria_id
+                FROM autopartes a
+                INNER JOIN categorias c ON a.categoria_id = c.id
+                $whereClause
+                ORDER BY a.{$orden} {$direccion}
+                LIMIT :limit OFFSET :offset";
             
-            // Aplicar límite y offset
-            $query .= " LIMIT :limit OFFSET :offset";
             $stmt = $db->getConnection()->prepare($query);
-            
             foreach ($params as $key => $value) {
                 $stmt->bindValue($key, $value);
             }
             $stmt->bindValue(':limit', $porPagina, PDO::PARAM_INT);
             $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
-            
             $stmt->execute();
             $autopartes = $stmt->fetchAll();
             
