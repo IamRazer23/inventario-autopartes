@@ -66,10 +66,11 @@ require_once VIEWS_PATH . '/layouts/header.php';
                              data-autoparte-id="<?= $item['autoparte_id'] ?>">
                             <!-- Producto -->
                             <div class="md:col-span-5 flex items-center space-x-4">
-                                <?php if ($item['imagen_thumb']): ?>
-                                    <img src="<?= UPLOADS_URL . '/' . htmlspecialchars($item['imagen_thumb']) ?>" 
+                                <?php if (!empty($item['imagen_thumb'])): ?>
+                                    <img src="<?= htmlspecialchars($item['imagen_thumb']) ?>" 
                                          alt="<?= htmlspecialchars($item['nombre']) ?>" 
-                                         class="w-20 h-20 object-cover rounded-lg border">
+                                         class="w-20 h-20 object-cover rounded-lg border"
+                                         onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'w-20 h-20 bg-gray-200 rounded-lg flex items-center justify-center\'><i class=\'fas fa-car text-gray-400 text-2xl\'></i></div>';">
                                 <?php else: ?>
                                     <div class="w-20 h-20 bg-gray-200 rounded-lg flex items-center justify-center">
                                         <i class="fas fa-car text-gray-400 text-2xl"></i>

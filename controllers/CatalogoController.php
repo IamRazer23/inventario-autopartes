@@ -56,8 +56,18 @@ class CatalogoController {
             // Obtener autopartes
             $autopartes = $this->autoparteModel->obtenerParaCatalogo($filtros);
             
-            // Contar total para paginación
-            $totalAutopartes = $this->autoparteModel->contarTodos(['estado' => 1]);
+            // Contar total para paginación (con los mismos filtros aplicados)
+            $filtrosConteo = [
+                'estado' => 1,
+                'buscar' => $filtros['buscar'],
+                'categoria_id' => $filtros['categoria_id'],
+                'marca' => $filtros['marca'],
+                'modelo' => $filtros['modelo'],
+                'anio' => $filtros['anio'],
+                'precio_min' => $filtros['precio_min'],
+                'precio_max' => $filtros['precio_max']
+            ];
+            $totalAutopartes = $this->autoparteModel->contarTodos($filtrosConteo);
             $totalPaginas = ceil($totalAutopartes / $porPagina);
             
             // Obtener datos para filtros
