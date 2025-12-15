@@ -1,15 +1,24 @@
 <?php
 /**
- * Vista: Crear Autoparte - Panel de Operador
- * Formulario con Tailwind CSS para agregar nuevas autopartes
+ * Vista: Editar Autoparte
+ * Formulario con Tailwind CSS para editar autopartes existentes
  */
 
 require_once VIEWS_PATH . '/layouts/header.php';
 
-// Obtener datos anteriores si hay error
-$old = $_SESSION['old'] ?? [];
+// Obtener datos anteriores si hay error, sino usar datos de la autoparte
+$old = $_SESSION['old'] ?? $autoparte;
 $errors = $_SESSION['errors'] ?? [];
 unset($_SESSION['old'], $_SESSION['errors']);
+
+// Determinar URL de retorno
+$returnUrl = $returnUrl ?? (isset($esOperador) && $esOperador 
+    ? '/index.php?module=operador&action=inventario' 
+    : '/index.php?module=admin&action=inventario');
+
+$actionUrl = isset($esOperador) && $esOperador 
+    ? '/index.php?module=operador&action=actualizar-autoparte'
+    : '/index.php?module=admin&action=autoparte-actualizar';
 ?>
 
 <div class="container mx-auto px-4 py-8">
@@ -19,14 +28,14 @@ unset($_SESSION['old'], $_SESSION['errors']);
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
                 <h1 class="text-3xl font-bold text-gray-800 flex items-center gap-3">
-                    <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center">
-                        <i class="fas fa-plus text-white text-xl"></i>
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-edit text-white text-xl"></i>
                     </div>
-                    Agregar Autoparte
+                    Editar Autoparte
                 </h1>
-                <p class="text-gray-500 mt-2">Complete el formulario para registrar una nueva autoparte en el inventario</p>
+                <p class="text-gray-500 mt-2">Modificando: <strong><?= htmlspecialchars($autoparte['nombre']) ?></strong></p>
             </div>
-            <a href="<?= BASE_URL ?>/index.php?module=operador&action=inventario" 
+            <a href="<?= BASE_URL . $returnUrl ?>" 
                class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition-colors">
                 <i class="fas fa-arrow-left"></i>
                 Volver al Inventario
@@ -54,7 +63,8 @@ unset($_SESSION['old'], $_SESSION['errors']);
     <?php endif; ?>
 
     <!-- Formulario -->
-    <form action="<?= BASE_URL ?>/index.php?module=operador&action=guardar-autoparte" method="POST" enctype="multipart/form-data" id="formAutoparte">
+    <form action="<?= BASE_URL . $actionUrl ?>" method="POST" enctype="multipart/form-data" id="formAutoparte">
+        <input type="hidden" name="id" value="<?= $autoparte['id'] ?>">
         
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
@@ -119,8 +129,8 @@ unset($_SESSION['old'], $_SESSION['errors']);
                                        class="w-full px-4 py-3 border <?= isset($errors['marca']) ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300' ?> rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none">
                                 <datalist id="listaMarcas">
                                     <?php if (!empty($marcas)): ?>
-                                        <?php foreach ($marcas as $marca): ?>
-                                            <option value="<?= htmlspecialchars($marca) ?>">
+                                        <?php foreach ($marcas as $m): ?>
+                                            <option value="<?= htmlspecialchars($m) ?>">
                                         <?php endforeach; ?>
                                     <?php endif; ?>
                                 </datalist>
@@ -219,9 +229,6 @@ unset($_SESSION['old'], $_SESSION['errors']);
                                 <?php if (isset($errors['stock'])): ?>
                                     <p class="mt-1 text-sm text-red-600"><i class="fas fa-exclamation-circle mr-1"></i><?= htmlspecialchars($errors['stock']) ?></p>
                                 <?php endif; ?>
-                                <p class="mt-1 text-xs text-gray-500">
-                                    <i class="fas fa-info-circle mr-1"></i>Se mostrará alerta si el stock es menor o igual a 5 unidades
-                                </p>
                             </div>
                         </div>
                     </div>
@@ -249,13 +256,10 @@ unset($_SESSION['old'], $_SESSION['errors']);
                                 <input type="url" 
                                        id="imagen_thumb_url" 
                                        name="imagen_thumb_url"
-                                       value="<?= htmlspecialchars($old['imagen_thumb_url'] ?? '') ?>"
+                                       value="<?= htmlspecialchars($old['thumbnail'] ?? $old['imagen_thumb_url'] ?? '') ?>"
                                        placeholder="https://ejemplo.com/imagen-thumb.jpg"
                                        class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all outline-none">
                             </div>
-                            <?php if (isset($errors['imagen_thumb_url'])): ?>
-                                <p class="mt-1 text-sm text-red-600"><i class="fas fa-exclamation-circle mr-1"></i><?= htmlspecialchars($errors['imagen_thumb_url']) ?></p>
-                            <?php endif; ?>
                         </div>
 
                         <!-- Imagen Grande URL -->
@@ -270,13 +274,10 @@ unset($_SESSION['old'], $_SESSION['errors']);
                                 <input type="url" 
                                        id="imagen_grande_url" 
                                        name="imagen_grande_url"
-                                       value="<?= htmlspecialchars($old['imagen_grande_url'] ?? '') ?>"
+                                       value="<?= htmlspecialchars($old['imagen_grande'] ?? $old['imagen_grande_url'] ?? '') ?>"
                                        placeholder="https://ejemplo.com/imagen-grande.jpg"
                                        class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all outline-none">
                             </div>
-                            <?php if (isset($errors['imagen_grande_url'])): ?>
-                                <p class="mt-1 text-sm text-red-600"><i class="fas fa-exclamation-circle mr-1"></i><?= htmlspecialchars($errors['imagen_grande_url']) ?></p>
-                            <?php endif; ?>
                         </div>
 
                         <!-- Preview de imágenes -->
@@ -284,13 +285,21 @@ unset($_SESSION['old'], $_SESSION['errors']);
                             <div class="text-center">
                                 <p class="text-xs text-gray-500 mb-2">Preview Thumbnail</p>
                                 <div id="preview-thumb" class="w-full h-32 bg-gray-100 rounded-xl border-2 border-dashed border-gray-300 flex items-center justify-center overflow-hidden">
-                                    <span class="text-gray-400 text-sm">Sin imagen</span>
+                                    <?php if (!empty($old['thumbnail'])): ?>
+                                        <img src="<?= htmlspecialchars($old['thumbnail']) ?>" alt="Thumbnail" class="w-full h-full object-cover">
+                                    <?php else: ?>
+                                        <span class="text-gray-400 text-sm">Sin imagen</span>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <div class="text-center">
                                 <p class="text-xs text-gray-500 mb-2">Preview Imagen Grande</p>
                                 <div id="preview-grande" class="w-full h-32 bg-gray-100 rounded-xl border-2 border-dashed border-gray-300 flex items-center justify-center overflow-hidden">
-                                    <span class="text-gray-400 text-sm">Sin imagen</span>
+                                    <?php if (!empty($old['imagen_grande'])): ?>
+                                        <img src="<?= htmlspecialchars($old['imagen_grande']) ?>" alt="Imagen Grande" class="w-full h-full object-cover">
+                                    <?php else: ?>
+                                        <span class="text-gray-400 text-sm">Sin imagen</span>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
@@ -319,7 +328,7 @@ unset($_SESSION['old'], $_SESSION['errors']);
                             <select id="categoria_id" 
                                     name="categoria_id" 
                                     required
-                                    class="w-full px-4 py-3 border <?= isset($errors['categoria_id']) ? 'border-red-500 ring-2 ring-red-200' : 'border-gray-300' ?> rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all outline-none bg-white">
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all outline-none bg-white">
                                 <option value="">Seleccionar categoría...</option>
                                 <?php if (!empty($categorias)): ?>
                                     <?php foreach ($categorias as $categoria): ?>
@@ -329,9 +338,6 @@ unset($_SESSION['old'], $_SESSION['errors']);
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             </select>
-                            <?php if (isset($errors['categoria_id'])): ?>
-                                <p class="mt-1 text-sm text-red-600"><i class="fas fa-exclamation-circle mr-1"></i><?= htmlspecialchars($errors['categoria_id']) ?></p>
-                            <?php endif; ?>
                         </div>
 
                         <!-- Estado -->
@@ -357,59 +363,50 @@ unset($_SESSION['old'], $_SESSION['errors']);
                     </div>
                 </div>
 
+                <!-- Card: Información Adicional -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="bg-gradient-to-r from-gray-500 to-gray-600 px-6 py-4">
+                        <h2 class="text-white font-semibold text-lg flex items-center gap-2">
+                            <i class="fas fa-clock"></i>
+                            Información
+                        </h2>
+                    </div>
+                    <div class="p-6 space-y-3 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">ID:</span>
+                            <span class="font-medium">#<?= $autoparte['id'] ?></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Creado:</span>
+                            <span class="font-medium"><?= date('d/m/Y H:i', strtotime($autoparte['fecha_creacion'])) ?></span>
+                        </div>
+                        <?php if (!empty($autoparte['fecha_actualizacion'])): ?>
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Actualizado:</span>
+                            <span class="font-medium"><?= date('d/m/Y H:i', strtotime($autoparte['fecha_actualizacion'])) ?></span>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+
                 <!-- Card: Acciones -->
                 <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                     <div class="p-6 space-y-4">
                         
-                        <!-- Botón Guardar -->
+                        <!-- Botón Guardar Cambios -->
                         <button type="submit" 
-                                class="w-full py-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold rounded-xl transition-all transform hover:scale-[1.02] shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
+                                class="w-full py-4 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold rounded-xl transition-all transform hover:scale-[1.02] shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
                             <i class="fas fa-save"></i>
-                            Guardar Autoparte
-                        </button>
-
-                        <!-- Botón Guardar y Agregar Otro -->
-                        <button type="submit" 
-                                name="agregar_otro" 
-                                value="1"
-                                class="w-full py-3 bg-blue-50 hover:bg-blue-100 text-blue-600 font-medium rounded-xl transition-all border border-blue-200 flex items-center justify-center gap-2">
-                            <i class="fas fa-plus"></i>
-                            Guardar y Agregar Otro
+                            Guardar Cambios
                         </button>
 
                         <!-- Botón Cancelar -->
-                        <a href="<?= BASE_URL ?>/index.php?module=operador&action=inventario" 
+                        <a href="<?= BASE_URL . $returnUrl ?>" 
                            class="w-full py-3 bg-gray-100 hover:bg-gray-200 text-gray-600 font-medium rounded-xl transition-all flex items-center justify-center gap-2">
                             <i class="fas fa-times"></i>
                             Cancelar
                         </a>
                     </div>
-                </div>
-
-                <!-- Card: Ayuda -->
-                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-100 p-6">
-                    <h3 class="font-semibold text-blue-800 flex items-center gap-2 mb-3">
-                        <i class="fas fa-lightbulb text-yellow-500"></i>
-                        Consejos
-                    </h3>
-                    <ul class="text-sm text-blue-700 space-y-2">
-                        <li class="flex items-start gap-2">
-                            <i class="fas fa-check-circle text-green-500 mt-0.5"></i>
-                            Use nombres descriptivos para facilitar la búsqueda
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i class="fas fa-check-circle text-green-500 mt-0.5"></i>
-                            Agregue imágenes de buena calidad
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i class="fas fa-check-circle text-green-500 mt-0.5"></i>
-                            Verifique el stock antes de guardar
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i class="fas fa-check-circle text-green-500 mt-0.5"></i>
-                            Use la marca y modelo correctos
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -435,10 +432,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     thumbInput.addEventListener('input', () => updatePreview(thumbInput, previewThumb));
     grandeInput.addEventListener('input', () => updatePreview(grandeInput, previewGrande));
-
-    // Cargar previews iniciales si hay valores
-    if (thumbInput.value) updatePreview(thumbInput, previewThumb);
-    if (grandeInput.value) updatePreview(grandeInput, previewGrande);
 });
 </script>
 

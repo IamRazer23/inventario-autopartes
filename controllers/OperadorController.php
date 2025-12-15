@@ -250,7 +250,7 @@ class OperadorController {
             $precio = Validator::sanitizeFloat($_POST['precio'] ?? 0);
             $stock = Validator::sanitizeInt($_POST['stock'] ?? 0);
             $categoria_id = Validator::sanitizeInt($_POST['categoria_id'] ?? 0);
-            $estado = isset($_POST['estado']) ? 1 : 0;
+            $estado = 1; // Siempre activo por defecto al crear
             
             // URLs de imágenes
             $imagen_thumb = trim($_POST['imagen_thumb_url'] ?? '');

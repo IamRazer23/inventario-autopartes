@@ -24,10 +24,9 @@ class Autoparte {
     public $categoria_id;
     public $thumbnail;
     public $imagen_grande;
-    public $estado;
+    public $estado = 1; // Activo por defecto
     public $fecha_creacion;
     public $fecha_actualizacion;
-    public $usuario_id;
     
     /**
      * Constructor
@@ -52,11 +51,11 @@ class Autoparte {
             $query = "INSERT INTO autopartes (
                         nombre, descripcion, marca, modelo, anio, 
                         precio, stock, categoria_id,
-                        thumbnail, imagen_grande, estado, usuario_id
+                        thumbnail, imagen_grande, estado
                     ) VALUES (
                         :nombre, :descripcion, :marca, :modelo, :anio,
                         :precio, :stock, :categoria_id,
-                        :thumbnail, :imagen_grande, :estado, :usuario_id
+                        :thumbnail, :imagen_grande, :estado
                     )";
             
             $stmt = $this->db->prepare($query);
@@ -72,7 +71,6 @@ class Autoparte {
             $stmt->bindParam(':thumbnail', $this->thumbnail);
             $stmt->bindParam(':imagen_grande', $this->imagen_grande);
             $stmt->bindParam(':estado', $this->estado, PDO::PARAM_INT);
-            $stmt->bindParam(':usuario_id', $this->usuario_id, PDO::PARAM_INT);
             
             if ($stmt->execute()) {
                 return $this->db->lastInsertId();
@@ -94,11 +92,9 @@ class Autoparte {
     public function obtenerPorId($id) {
         try {
             $query = "SELECT a.*, 
-                            c.nombre as categoria_nombre,
-                            u.nombre as usuario_nombre
+                            c.nombre as categoria_nombre
                      FROM autopartes a 
                      LEFT JOIN categorias c ON a.categoria_id = c.id 
-                     LEFT JOIN usuarios u ON a.usuario_id = u.id
                      WHERE a.id = :id";
             
             $stmt = $this->db->prepare($query);
@@ -129,7 +125,7 @@ class Autoparte {
             $params = [];
             
             // Aplicar filtros
-            if (isset($filtros['estado'])) {
+            if (isset($filtros['estado']) && $filtros['estado'] !== '') {
                 $query .= " AND a.estado = :estado";
                 $params[':estado'] = $filtros['estado'];
             }
@@ -499,7 +495,7 @@ class Autoparte {
             $query = "SELECT COUNT(*) FROM autopartes WHERE 1=1";
             $params = [];
             
-            if (isset($filtros['estado'])) {
+            if (isset($filtros['estado']) && $filtros['estado'] !== '') {
                 $query .= " AND estado = :estado";
                 $params[':estado'] = $filtros['estado'];
             }
