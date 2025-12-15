@@ -138,20 +138,20 @@
         </div>
 
         <!-- Credenciales de prueba (solo en modo desarrollo) -->
-        <?php if (DEV_MODE): ?>
+       <!-- <?php if (DEV_MODE): ?>
             <div class="mt-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                 <p class="text-xs font-semibold text-yellow-800 mb-2">
                     <i class="fas fa-info-circle mr-1"></i>
                     Credenciales de Prueba:
                 </p>
                 <div class="text-xs text-yellow-700 space-y-1">
-                    <p><strong>Admin:</strong> admin@sistema.com / root2514</p>
+                    <p><strong>Admin:</strong> botaciojuan3@gmail.com / root2514</p>
                     <p><strong>Operador:</strong> operador@sistema.com / operador123</p>
                     <p><strong>Cliente:</strong> cliente@sistema.com / cliente123</p>
                 </div>
             </div>
         <?php endif; ?>
-    </div>
+    </div> -->
 
     <script>
         // Toggle password visibility

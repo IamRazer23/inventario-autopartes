@@ -142,6 +142,14 @@ class AdminController {
                 $porcentajeCambio = (($comparacionMes['mes_actual'] - $comparacionMes['mes_anterior']) 
                                     / $comparacionMes['mes_anterior']) * 100;
             }
+
+            // ===== VENTAS ÚLTIMOS 7 DÍAS (para gráfico) =====
+            $queryVentasSemana = "SELECT DATE(fecha_venta) AS fecha, COALESCE(SUM(total),0) AS ingresos 
+                FROM ventas 
+                WHERE fecha_venta >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)
+                GROUP BY DATE(fecha_venta)
+                ORDER BY DATE(fecha_venta) ASC";
+            $ventasSemana = $this->db->fetchAll($queryVentasSemana);
             
             $pageTitle = 'Dashboard Administrativo - Sistema AutoPartes';
             
@@ -288,7 +296,7 @@ class AdminController {
             $offset = ($pagina - 1) * $porPagina;
             
             $query = "SELECT 
-                v.id, v.total, v.subtotal, v.impuesto, v.fecha_venta, v.estado,
+                v.id, v.total, v.subtotal, v.itbms, v.fecha_venta, v.estado,
                 u.nombre as cliente, u.email as cliente_email,
                 COUNT(dv.id) as total_items
                 FROM ventas v
@@ -315,15 +323,33 @@ class AdminController {
             
             $query .= " GROUP BY v.id ORDER BY v.fecha_venta DESC";
             
-            // Contar total
-            $queryCount = preg_replace('/SELECT .* FROM/', 'SELECT COUNT(DISTINCT v.id) as total FROM', $query);
-            $queryCount = preg_replace('/GROUP BY.*/', '', $queryCount);
+            // Contar total de ventas (subconsulta segura que respeta filtros)
+            $queryCount = "SELECT COUNT(*) as total FROM (
+                SELECT v.id
+                FROM ventas v
+                INNER JOIN usuarios u ON v.usuario_id = u.id
+                LEFT JOIN detalle_venta dv ON v.id = dv.venta_id
+                WHERE 1=1";
+
+            // Reaplicar filtros en subconsulta
+            if (!empty($filtros['fecha_desde'])) {
+                $queryCount .= " AND DATE(v.fecha_venta) >= :fecha_desde";
+            }
+            if (!empty($filtros['fecha_hasta'])) {
+                $queryCount .= " AND DATE(v.fecha_venta) <= :fecha_hasta";
+            }
+            if (!empty($filtros['cliente'])) {
+                $queryCount .= " AND (u.nombre LIKE :cliente OR u.email LIKE :cliente)";
+            }
+
+            $queryCount .= " GROUP BY v.id) as t";
+
             $totalVentas = $this->db->fetchOne($queryCount, $params)['total'] ?? 0;
             $totalPaginas = ceil($totalVentas / $porPagina);
-            
+
             // Aplicar paginación
             $query .= " LIMIT $porPagina OFFSET $offset";
-            
+
             $ventas = $this->db->fetchAll($query, $params);
             
             // Estadísticas rápidas
@@ -338,7 +364,8 @@ class AdminController {
             require_once VIEWS_PATH . '/admin/ventas.php';
             
         } catch (Exception $e) {
-            setFlashMessage(MSG_ERROR, 'Error al cargar ventas');
+            error_log('Error en AdminController::ventas - ' . $e->getMessage());
+            setFlashMessage(MSG_ERROR, 'Error al cargar ventas: ' . $e->getMessage());
             redirect('/index.php?module=admin&action=dashboard');
         }
     }
@@ -500,7 +527,7 @@ class AdminController {
                 u.nombre as 'Cliente',
                 u.email as 'Email',
                 v.subtotal as 'Subtotal',
-                v.impuesto as 'ITBMS',
+                v.itbms as 'ITBMS',
                 v.total as 'Total',
                 v.fecha_venta as 'Fecha',
                 v.estado as 'Estado'

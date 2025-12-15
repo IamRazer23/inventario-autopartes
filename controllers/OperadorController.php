@@ -201,8 +201,8 @@ class OperadorController {
             
             $pageTitle = 'Detalle de Autoparte - ' . $autoparte['nombre'];
             $esOperador = true;
-            
-            require_once VIEWS_PATH . '/admin/inventario/ver.php';
+
+            require_once VIEWS_PATH . '/operador/ver_autoparte.php';
             
         } catch (Exception $e) {
             setFlashMessage(MSG_ERROR, 'Error al cargar autoparte');
@@ -352,8 +352,9 @@ class OperadorController {
             $pageTitle = 'Editar Autoparte - Operador';
             $esOperador = true;
             $returnUrl = '/index.php?module=operador&action=inventario';
-            
-            require_once VIEWS_PATH . '/admin/inventario/editar.php';
+
+            // Pasar la autoparte a la vista de creación para reutilizar el formulario (modo edición)
+            require_once VIEWS_PATH . '/operador/crear_autoparte.php';
             
         } catch (Exception $e) {
             setFlashMessage(MSG_ERROR, 'Error al cargar formulario');

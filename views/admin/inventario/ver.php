@@ -205,12 +205,12 @@ require_once VIEWS_PATH . '/layouts/header.php';
                         </div>
                         <div class="col-md-6">
                             <table class="table table-sm table-borderless mb-0">
-                                <?php if ($autoparte['usuario_nombre']): ?>
-                                <tr>
-                                    <td class="text-muted">Registrado por:</td>
-                                    <td><?= htmlspecialchars($autoparte['usuario_nombre']) ?></td>
-                                </tr>
-                                <?php endif; ?>
+                                <?php if (!empty($autoparte['usuario_nombre'] ?? null)): ?>
+<tr>
+    <td class="text-muted">Registrado por:</td>
+    <td><?= htmlspecialchars($autoparte['usuario_nombre']) ?></td>
+</tr>
+<?php endif; ?>
                                 <tr>
                                     <td class="text-muted">Valor en inventario:</td>
                                     <td><strong>$<?= number_format($autoparte['precio'] * $autoparte['stock'], 2) ?></strong></td>

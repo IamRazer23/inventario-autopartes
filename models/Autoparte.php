@@ -2,6 +2,8 @@
 /**
  * Clase Autoparte
  * Modelo para gestión del inventario de autopartes
+ * 
+ * CORREGIDO: Manejo de filtros vacíos en obtenerTodos() y contarTodos()
  */
 
 require_once __DIR__ . '/../config/Database.php';
@@ -43,7 +45,6 @@ class Autoparte {
      * @return int|false ID de la autoparte creada o false
      */
     public function crear() {
-        // Validaciones
         if (!$this->validarDatos()) {
             return false;
         }
@@ -52,11 +53,11 @@ class Autoparte {
             $query = "INSERT INTO autopartes (
                         nombre, descripcion, marca, modelo, anio, 
                         precio, stock, categoria_id,
-                        thumbnail, imagen_grande, estado, usuario_id
+                        thumbnail, imagen_grande, estado
                     ) VALUES (
                         :nombre, :descripcion, :marca, :modelo, :anio,
                         :precio, :stock, :categoria_id,
-                        :thumbnail, :imagen_grande, :estado, :usuario_id
+                        :thumbnail, :imagen_grande, :estado
                     )";
             
             $stmt = $this->db->prepare($query);
@@ -72,7 +73,6 @@ class Autoparte {
             $stmt->bindParam(':thumbnail', $this->thumbnail);
             $stmt->bindParam(':imagen_grande', $this->imagen_grande);
             $stmt->bindParam(':estado', $this->estado, PDO::PARAM_INT);
-            $stmt->bindParam(':usuario_id', $this->usuario_id, PDO::PARAM_INT);
             
             if ($stmt->execute()) {
                 return $this->db->lastInsertId();
@@ -92,28 +92,33 @@ class Autoparte {
      * @return array|false
      */
     public function obtenerPorId($id) {
-        try {
-            $query = "SELECT a.*, 
-                            c.nombre as categoria_nombre,
-                            u.nombre as usuario_nombre
-                     FROM autopartes a 
-                     LEFT JOIN categorias c ON a.categoria_id = c.id 
-                     LEFT JOIN usuarios u ON a.usuario_id = u.id
-                     WHERE a.id = :id";
-            
-            $stmt = $this->db->prepare($query);
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-            $stmt->execute();
-            
-            return $stmt->fetch();
-            
-        } catch (PDOException $e) {
-            throw new Exception("Error al obtener autoparte: " . $e->getMessage());
-        }
+    try {
+        $query = "SELECT 
+                    a.id, a.nombre, a.descripcion, a.marca, a.modelo, a.anio,
+                    a.precio, a.stock, a.categoria_id,
+                    a.thumbnail, a.imagen_grande, a.estado,
+                    a.fecha_creacion, a.fecha_actualizacion,
+                    c.nombre AS categoria_nombre
+                  FROM autopartes a
+                  LEFT JOIN categorias c ON a.categoria_id = c.id
+                  WHERE a.id = :id";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row ?: false;
+
+    } catch (PDOException $e) {
+        return false;
     }
+}
+
     
     /**
      * Obtiene todas las autopartes con filtros
+     * CORREGIDO: Verificación de filtros vacíos
      * 
      * @param array $filtros Filtros opcionales
      * @return array
@@ -128,43 +133,44 @@ class Autoparte {
             
             $params = [];
             
-            // Aplicar filtros
-            if (isset($filtros['estado'])) {
+            // CORREGIDO: Verificar que estado no sea string vacío
+            if (isset($filtros['estado']) && $filtros['estado'] !== '') {
                 $query .= " AND a.estado = :estado";
-                $params[':estado'] = $filtros['estado'];
+                $params[':estado'] = (int)$filtros['estado'];
             }
             
-            if (isset($filtros['categoria_id']) && $filtros['categoria_id'] !== '') {
+            // CORREGIDO: Usar !empty() para verificar valores
+            if (!empty($filtros['categoria_id'])) {
                 $query .= " AND a.categoria_id = :categoria_id";
-                $params[':categoria_id'] = $filtros['categoria_id'];
+                $params[':categoria_id'] = (int)$filtros['categoria_id'];
             }
             
-            if (isset($filtros['marca']) && $filtros['marca'] !== '') {
-                $query .= " AND a.marca LIKE :marca";
-                $params[':marca'] = '%' . $filtros['marca'] . '%';
+            if (!empty($filtros['marca'])) {
+                $query .= " AND a.marca = :marca";
+                $params[':marca'] = $filtros['marca'];
             }
             
-            if (isset($filtros['modelo']) && $filtros['modelo'] !== '') {
+            if (!empty($filtros['modelo'])) {
                 $query .= " AND a.modelo LIKE :modelo";
                 $params[':modelo'] = '%' . $filtros['modelo'] . '%';
             }
             
-            if (isset($filtros['anio']) && $filtros['anio'] !== '') {
+            if (!empty($filtros['anio'])) {
                 $query .= " AND a.anio = :anio";
-                $params[':anio'] = $filtros['anio'];
+                $params[':anio'] = (int)$filtros['anio'];
             }
             
             if (isset($filtros['precio_min']) && $filtros['precio_min'] !== '') {
                 $query .= " AND a.precio >= :precio_min";
-                $params[':precio_min'] = $filtros['precio_min'];
+                $params[':precio_min'] = (float)$filtros['precio_min'];
             }
             
             if (isset($filtros['precio_max']) && $filtros['precio_max'] !== '') {
                 $query .= " AND a.precio <= :precio_max";
-                $params[':precio_max'] = $filtros['precio_max'];
+                $params[':precio_max'] = (float)$filtros['precio_max'];
             }
             
-            if (isset($filtros['buscar']) && $filtros['buscar'] !== '') {
+            if (!empty($filtros['buscar'])) {
                 $query .= " AND (a.nombre LIKE :buscar OR a.descripcion LIKE :buscar2 OR a.marca LIKE :buscar3 OR a.modelo LIKE :buscar4)";
                 $params[':buscar'] = '%' . $filtros['buscar'] . '%';
                 $params[':buscar2'] = '%' . $filtros['buscar'] . '%';
@@ -172,7 +178,7 @@ class Autoparte {
                 $params[':buscar4'] = '%' . $filtros['buscar'] . '%';
             }
             
-            if (isset($filtros['stock_bajo']) && $filtros['stock_bajo']) {
+            if (!empty($filtros['stock_bajo'])) {
                 $query .= " AND a.stock <= 5";
             }
             
@@ -187,7 +193,7 @@ class Autoparte {
             $query .= " ORDER BY a.$orden $direccion";
             
             // Paginación
-            if (isset($filtros['limite'])) {
+            if (isset($filtros['limite']) && $filtros['limite'] > 0) {
                 $query .= " LIMIT :limite";
                 if (isset($filtros['offset'])) {
                     $query .= " OFFSET :offset";
@@ -200,7 +206,7 @@ class Autoparte {
                 $stmt->bindValue($key, $value);
             }
             
-            if (isset($filtros['limite'])) {
+            if (isset($filtros['limite']) && $filtros['limite'] > 0) {
                 $stmt->bindValue(':limite', (int)$filtros['limite'], PDO::PARAM_INT);
                 if (isset($filtros['offset'])) {
                     $stmt->bindValue(':offset', (int)$filtros['offset'], PDO::PARAM_INT);
@@ -209,7 +215,7 @@ class Autoparte {
             
             $stmt->execute();
             
-            return $stmt->fetchAll();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
             
         } catch (PDOException $e) {
             throw new Exception("Error al obtener autopartes: " . $e->getMessage());
@@ -223,13 +229,7 @@ class Autoparte {
      * @return array
      */
     public function obtenerParaCatalogo($filtros = []) {
-        // Solo mostrar autopartes activas con stock
         $filtros['estado'] = 1;
-        
-        if (!isset($filtros['solo_disponibles']) || $filtros['solo_disponibles']) {
-            // Agregar filtro de stock > 0
-        }
-        
         return $this->obtenerTodos($filtros);
     }
     
@@ -256,7 +256,6 @@ class Autoparte {
                         estado = :estado,
                         fecha_actualizacion = CURRENT_TIMESTAMP";
             
-            // Si hay nuevas imágenes, actualizarlas
             if (!empty($this->thumbnail)) {
                 $query .= ", thumbnail = :thumbnail";
             }
@@ -291,6 +290,16 @@ class Autoparte {
         } catch (PDOException $e) {
             throw new Exception("Error al actualizar autoparte: " . $e->getMessage());
         }
+    }
+    
+    /**
+     * Elimina/Desactiva una autoparte (soft delete)
+     * 
+     * @param int $id
+     * @return bool
+     */
+    public function eliminar($id) {
+        return $this->desactivar($id);
     }
     
     /**
@@ -340,7 +349,6 @@ class Autoparte {
      */
     public function actualizarStock($id, $cantidad) {
         try {
-            // Primero verificar stock actual
             $autoparte = $this->obtenerPorId($id);
             
             if (!$autoparte) {
@@ -349,7 +357,6 @@ class Autoparte {
             
             $nuevoStock = $autoparte['stock'] + $cantidad;
             
-            // No permitir stock negativo
             if ($nuevoStock < 0) {
                 return false;
             }
@@ -368,7 +375,6 @@ class Autoparte {
     
     /**
      * Registra una venta (mueve a tabla vendido_parte)
-     * Cumple con requisito 4: Disminuir inventario enviando a tabla VENDIDO_PARTE
      * 
      * @param int $autoparteId
      * @param int $cantidad
@@ -380,7 +386,6 @@ class Autoparte {
         try {
             $this->db->beginTransaction();
             
-            // Verificar stock disponible
             $autoparte = $this->obtenerPorId($autoparteId);
             
             if (!$autoparte || $autoparte['stock'] < $cantidad) {
@@ -388,7 +393,6 @@ class Autoparte {
                 return false;
             }
             
-            // Registrar en vendido_parte
             $query = "INSERT INTO vendido_parte (autoparte_id, cantidad, precio_unitario, precio_total, usuario_id)
                      VALUES (:autoparte_id, :cantidad, :precio_unitario, :precio_total, :usuario_id)";
             
@@ -409,7 +413,6 @@ class Autoparte {
             
             $ventaId = $this->db->lastInsertId();
             
-            // Actualizar stock
             if (!$this->actualizarStock($autoparteId, -$cantidad)) {
                 $this->db->rollBack();
                 return false;
@@ -490,6 +493,7 @@ class Autoparte {
     
     /**
      * Cuenta total de autopartes
+     * CORREGIDO: Verificación de filtros vacíos
      * 
      * @param array $filtros
      * @return int
@@ -499,42 +503,43 @@ class Autoparte {
             $query = "SELECT COUNT(*) FROM autopartes WHERE 1=1";
             $params = [];
             
-            if (isset($filtros['estado'])) {
+            // CORREGIDO: Verificar que estado no sea string vacío
+            if (isset($filtros['estado']) && $filtros['estado'] !== '') {
                 $query .= " AND estado = :estado";
-                $params[':estado'] = $filtros['estado'];
+                $params[':estado'] = (int)$filtros['estado'];
             }
             
-            if (isset($filtros['categoria_id']) && $filtros['categoria_id'] !== '') {
+            if (!empty($filtros['categoria_id'])) {
                 $query .= " AND categoria_id = :categoria_id";
-                $params[':categoria_id'] = $filtros['categoria_id'];
+                $params[':categoria_id'] = (int)$filtros['categoria_id'];
             }
             
-            if (isset($filtros['marca']) && $filtros['marca'] !== '') {
-                $query .= " AND marca LIKE :marca";
-                $params[':marca'] = '%' . $filtros['marca'] . '%';
+            if (!empty($filtros['marca'])) {
+                $query .= " AND marca = :marca";
+                $params[':marca'] = $filtros['marca'];
             }
             
-            if (isset($filtros['modelo']) && $filtros['modelo'] !== '') {
+            if (!empty($filtros['modelo'])) {
                 $query .= " AND modelo LIKE :modelo";
                 $params[':modelo'] = '%' . $filtros['modelo'] . '%';
             }
             
-            if (isset($filtros['anio']) && $filtros['anio'] !== '') {
+            if (!empty($filtros['anio'])) {
                 $query .= " AND anio = :anio";
-                $params[':anio'] = $filtros['anio'];
+                $params[':anio'] = (int)$filtros['anio'];
             }
             
             if (isset($filtros['precio_min']) && $filtros['precio_min'] !== '') {
                 $query .= " AND precio >= :precio_min";
-                $params[':precio_min'] = $filtros['precio_min'];
+                $params[':precio_min'] = (float)$filtros['precio_min'];
             }
             
             if (isset($filtros['precio_max']) && $filtros['precio_max'] !== '') {
                 $query .= " AND precio <= :precio_max";
-                $params[':precio_max'] = $filtros['precio_max'];
+                $params[':precio_max'] = (float)$filtros['precio_max'];
             }
             
-            if (isset($filtros['buscar']) && $filtros['buscar'] !== '') {
+            if (!empty($filtros['buscar'])) {
                 $query .= " AND (nombre LIKE :buscar OR descripcion LIKE :buscar2 OR marca LIKE :buscar3 OR modelo LIKE :buscar4)";
                 $params[':buscar'] = '%' . $filtros['buscar'] . '%';
                 $params[':buscar2'] = '%' . $filtros['buscar'] . '%';
@@ -542,14 +547,14 @@ class Autoparte {
                 $params[':buscar4'] = '%' . $filtros['buscar'] . '%';
             }
             
-            if (isset($filtros['stock_bajo']) && $filtros['stock_bajo']) {
+            if (!empty($filtros['stock_bajo'])) {
                 $query .= " AND stock <= 5";
             }
             
             $stmt = $this->db->prepare($query);
             $stmt->execute($params);
             
-            return $stmt->fetchColumn();
+            return (int)$stmt->fetchColumn();
             
         } catch (PDOException $e) {
             throw new Exception("Error al contar autopartes: " . $e->getMessage());
@@ -563,12 +568,12 @@ class Autoparte {
      */
     public function obtenerValorInventario() {
         try {
-            $query = "SELECT SUM(precio * stock) as valor_total FROM autopartes WHERE estado = 1";
+            $query = "SELECT COALESCE(SUM(precio * stock), 0) as valor_total FROM autopartes WHERE estado = 1";
             $stmt = $this->db->prepare($query);
             $stmt->execute();
             
-            $result = $stmt->fetch();
-            return $result['valor_total'] ?? 0;
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return (float)($result['valor_total'] ?? 0);
             
         } catch (PDOException $e) {
             throw new Exception("Error al calcular valor inventario: " . $e->getMessage());
@@ -593,10 +598,37 @@ class Autoparte {
             $stmt->bindParam(':limite', $limite, PDO::PARAM_INT);
             $stmt->execute();
             
-            return $stmt->fetchAll();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
             
         } catch (PDOException $e) {
             throw new Exception("Error al obtener stock bajo: " . $e->getMessage());
+        }
+    }
+    
+    /**
+     * Obtiene historial de ventas de una autoparte
+     * 
+     * @param int $id
+     * @return array
+     */
+    public function obtenerHistorialVentas($id) {
+        try {
+            $query = "SELECT vp.*, v.fecha_venta, u.nombre as cliente
+                     FROM vendido_parte vp
+                     LEFT JOIN ventas v ON vp.venta_id = v.id
+                     LEFT JOIN usuarios u ON vp.usuario_id = u.id
+                     WHERE vp.autoparte_id = :id
+                     ORDER BY vp.fecha_venta DESC
+                     LIMIT 20";
+            
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            
+        } catch (PDOException $e) {
+            return [];
         }
     }
     
@@ -609,38 +641,25 @@ class Autoparte {
     private function validarDatos($esNuevo = true) {
         $this->validator->clearErrors();
         
-        // Validar nombre
         $this->validator->required($this->nombre, 'nombre');
         $this->validator->minLength($this->nombre, 3, 'nombre');
         $this->validator->maxLength($this->nombre, 150, 'nombre');
         
-        // Validar marca
         $this->validator->required($this->marca, 'marca');
         $this->validator->maxLength($this->marca, 50, 'marca');
         
-        // Validar modelo
         $this->validator->required($this->modelo, 'modelo');
         $this->validator->maxLength($this->modelo, 50, 'modelo');
         
-        // Validar año
         $this->validator->required($this->anio, 'anio');
         $this->validator->validYear($this->anio, 'anio');
         
-        // Validar precio
         $this->validator->required($this->precio, 'precio');
         $this->validator->numeric($this->precio, 'precio');
-        if ($this->precio < 0) {
-            $this->validator->getErrors()['precio'] = 'El precio no puede ser negativo';
-        }
         
-        // Validar stock
         $this->validator->required($this->stock, 'stock');
         $this->validator->numeric($this->stock, 'stock');
-        if ($this->stock < 0) {
-            $this->validator->getErrors()['stock'] = 'El stock no puede ser negativo';
-        }
         
-        // Validar categoría
         $this->validator->required($this->categoria_id, 'categoria');
         
         return !$this->validator->hasErrors();

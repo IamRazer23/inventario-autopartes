@@ -10,6 +10,13 @@ require_once VIEWS_PATH . '/layouts/header.php';
 $old = $_SESSION['old'] ?? [];
 $errors = $_SESSION['errors'] ?? [];
 unset($_SESSION['old'], $_SESSION['errors']);
+
+// Si la vista recibe una variable $autoparte (modo edición), mezclar valores
+$isEdit = isset($autoparte) && !empty($autoparte);
+if ($isEdit) {
+    // Priorizar valores provenientes de sesión (errores) si existen
+    $old = array_merge((array)$autoparte, $old);
+}
 ?>
 
 <div class="container mx-auto px-4 py-8">
@@ -20,11 +27,11 @@ unset($_SESSION['old'], $_SESSION['errors']);
             <div>
                 <h1 class="text-3xl font-bold text-gray-800 flex items-center gap-3">
                     <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center">
-                        <i class="fas fa-plus text-white text-xl"></i>
+                        <i class="fas <?= $isEdit ? 'fa-edit' : 'fa-plus' ?> text-white text-xl"></i>
                     </div>
-                    Agregar Autoparte
+                    <?= $isEdit ? 'Editar Autoparte' : 'Agregar Autoparte' ?>
                 </h1>
-                <p class="text-gray-500 mt-2">Complete el formulario para registrar una nueva autoparte en el inventario</p>
+                <p class="text-gray-500 mt-2"><?= $isEdit ? 'Modifica los campos y guarda los cambios de la autoparte' : 'Complete el formulario para registrar una nueva autoparte en el inventario' ?></p>
             </div>
             <a href="<?= BASE_URL ?>/index.php?module=operador&action=inventario" 
                class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition-colors">
@@ -54,7 +61,10 @@ unset($_SESSION['old'], $_SESSION['errors']);
     <?php endif; ?>
 
     <!-- Formulario -->
-    <form action="<?= BASE_URL ?>/index.php?module=operador&action=guardar-autoparte" method="POST" enctype="multipart/form-data" id="formAutoparte">
+    <form action="<?= BASE_URL ?>/index.php?module=operador&action=<?= $isEdit ? 'actualizar-autoparte' : 'guardar-autoparte' ?>" method="POST" enctype="multipart/form-data" id="formAutoparte">
+        <?php if ($isEdit): ?>
+            <input type="hidden" name="id" value="<?= htmlspecialchars($old['id'] ?? '') ?>">
+        <?php endif; ?>
         
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
@@ -77,9 +87,9 @@ unset($_SESSION['old'], $_SESSION['errors']);
                                 Nombre de la Autoparte <span class="text-red-500">*</span>
                             </label>
                             <input type="text" 
-                                   id="nombre" 
-                                   name="nombre" 
-                                   value="<?= htmlspecialchars($old['nombre'] ?? '') ?>"
+                                id="nombre" 
+                                name="nombre" 
+                                value="<?= htmlspecialchars($old['nombre'] ?? '') ?>"
                                    placeholder="Ej: Puerta delantera derecha"
                                    required 
                                    maxlength="150"
@@ -94,11 +104,11 @@ unset($_SESSION['old'], $_SESSION['errors']);
                             <label for="descripcion" class="block text-sm font-medium text-gray-700 mb-2">
                                 Descripción
                             </label>
-                            <textarea id="descripcion" 
-                                      name="descripcion" 
-                                      rows="4" 
-                                      placeholder="Descripción detallada de la autoparte..."
-                                      class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none resize-none"><?= htmlspecialchars($old['descripcion'] ?? '') ?></textarea>
+                              <textarea id="descripcion" 
+                                  name="descripcion" 
+                                  rows="4" 
+                                  placeholder="Descripción detallada de la autoparte..."
+                                  class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none resize-none"><?= htmlspecialchars($old['descripcion'] ?? '') ?></textarea>
                         </div>
 
                         <!-- Marca, Modelo, Año -->
@@ -365,10 +375,10 @@ unset($_SESSION['old'], $_SESSION['errors']);
                         <button type="submit" 
                                 class="w-full py-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold rounded-xl transition-all transform hover:scale-[1.02] shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
                             <i class="fas fa-save"></i>
-                            Guardar Autoparte
+                            <?= $isEdit ? 'Guardar Cambios' : 'Guardar Autoparte' ?>
                         </button>
 
-                        <!-- Botón Guardar y Agregar Otro -->
+                        <?php if (!$isEdit): ?>
                         <button type="submit" 
                                 name="agregar_otro" 
                                 value="1"
@@ -376,6 +386,7 @@ unset($_SESSION['old'], $_SESSION['errors']);
                             <i class="fas fa-plus"></i>
                             Guardar y Agregar Otro
                         </button>
+                        <?php endif; ?>
 
                         <!-- Botón Cancelar -->
                         <a href="<?= BASE_URL ?>/index.php?module=operador&action=inventario" 

@@ -104,7 +104,7 @@ require_once VIEWS_PATH . '/layouts/header.php';
                     </div>
                     <div class="flex justify-between">
                         <span class="text-gray-600">ITBMS (7%)</span>
-                        <span class="font-medium"><?= formatCurrency($venta['impuesto']) ?></span>
+                        <span class="font-medium"><?= formatCurrency($venta['itbms']) ?></span>
                     </div>
                     <hr>
                     <div class="flex justify-between text-lg">
