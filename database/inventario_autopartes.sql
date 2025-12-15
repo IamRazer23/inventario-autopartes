@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-12-2025 a las 03:50:11
+-- Tiempo de generación: 15-12-2025 a las 04:51:57
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -49,7 +49,7 @@ CREATE TABLE `autopartes` (
 --
 
 INSERT INTO `autopartes` (`id`, `nombre`, `marca`, `modelo`, `anio`, `precio`, `stock`, `categoria_id`, `thumbnail`, `imagen_grande`, `descripcion`, `estado`, `fecha_creacion`, `fecha_actualizacion`) VALUES
-(41, 'Pastillas de freno delanteras', 'Toyota', 'Corolla', '2016', 29.90, 24, 7, 'https://w7.pngwing.com/pngs/919/1008/png-transparent-car-brake-pad-brake-pad-car-auto-part-brake.png', 'https://w7.pngwing.com/pngs/919/1008/png-transparent-car-brake-pad-brake-pad-car-auto-part-brake.png', 'Juego de pastillas cerámicas para disco delantero, libre de asbesto.', 1, '2025-12-11 16:04:39', '2025-12-15 01:40:25'),
+(41, 'Pastillas de freno delanteras', 'Toyota', 'Corolla', '2016', 29.90, 24, 7, 'https://w7.pngwing.com/pngs/919/1008/png-transparent-car-brake-pad-brake-pad-car-auto-part-brake.png', 'https://w7.pngwing.com/pngs/919/1008/png-transparent-car-brake-pad-brake-pad-car-auto-part-brake.png', 'Juego de pastillas cerámicas para disco delantero, libre de asbesto.', 0, '2025-12-11 16:04:39', '2025-12-15 03:29:12'),
 (42, 'Disco de freno ventilado 256mm', 'TRW', 'Suzuki Swift', '2018', 42.00, 10, 7, 'https://www.pikpng.com/pngl/b/404-4047016_disco-de-freno-frenos-de-disco-ventilado-png.png', 'https://www.pikpng.com/pngl/b/404-4047016_disco-de-freno-frenos-de-disco-ventilado-png.png', 'Disco ventilado alta resistencia; se recomienda cambio por par.', 1, '2025-12-11 16:04:39', '2025-12-15 01:40:25'),
 (43, 'Filtro de aceite 90915-YZZF2', 'Toyota', 'Hilux', '2018', 8.50, 55, 1, 'https://png.pngtree.com/png-vector/20241018/ourlarge/pngtree-modern-engine-oil-filter-isolated-designed-for-automotive-repair-and-replacement-png-image_14114532.png', 'https://png.pngtree.com/png-vector/20241018/ourlarge/pngtree-modern-engine-oil-filter-isolated-designed-for-automotive-repair-and-replacement-png-image_14114532.png', 'Filtro de aceite OEM equivalente, rosca M20x1.5.', 1, '2025-12-11 16:04:39', '2025-12-15 01:40:25'),
 (44, 'Batería 12V 65Ah libre de mantenimiento', 'ACDelco', 'Universal', '2022', 119.00, 12, 1, 'https://e-tech.mx/wp-content/uploads/2023/12/braubi575at1_A.png', 'https://e-tech.mx/wp-content/uploads/2023/12/braubi575at1_A.png', 'Batería sellada libre de mantenimiento, garantía 12 meses.', 1, '2025-12-11 16:04:39', '2025-12-15 01:40:25'),
@@ -66,7 +66,9 @@ INSERT INTO `autopartes` (`id`, `nombre`, `marca`, `modelo`, `anio`, `precio`, `
 (55, 'Amortiguador trasero gas', 'KYB', 'Kia Rio', '2017', 58.90, 14, 6, 'https://c0.klipartz.com/pngpicture/164/315/gratis-png-amortiguador-amortiguador-gas-amortiguadores.png', 'https://c0.klipartz.com/pngpicture/164/315/gratis-png-amortiguador-amortiguador-gas-amortiguadores.png', 'Amortiguador de gas presurizado para eje trasero, par recomendado.', 1, '2025-12-11 16:04:39', '2025-12-15 01:40:25'),
 (56, 'Kit de embrague completo', 'Sachs', 'Volkswagen Jetta', '2013', 245.00, 4, 8, 'https://sogo4x4.com/wp-content/uploads/cuis22e2r1201.png', 'https://sogo4x4.com/wp-content/uploads/cuis22e2r1201.png', 'Incluye prensa, disco y collarín; no incluye volante bimasa.', 1, '2025-12-11 16:04:39', '2025-12-15 01:40:25'),
 (57, 'Faro delantero derecho', 'Depo', 'Ford Ranger', '2019', 155.00, 6, 2, 'https://www.farosypilotos.es/wp-content/uploads/2024/10/Faro-Delantero-Derecho-Ford-Ranger-2013-2016-Negro-www.farosypilotos.es-3.jpg', 'https://www.farosypilotos.es/wp-content/uploads/2024/10/Faro-Delantero-Derecho-Ford-Ranger-2013-2016-Negro-www.farosypilotos.es-3.jpg', 'Faro halógeno con regulación eléctrica; DOT/SAE.', 1, '2025-12-11 16:04:39', '2025-12-15 01:40:25'),
-(58, 'Juego de limpiaparabrisas 24\"/16\"', 'Bosch', 'Universal', '2023', 17.50, 55, 2, '/img/autopartes/limpia-24-16-thumb.jpg', '/img/autopartes/limpia-24-16.jpg', 'Escobillas aerotwin, adaptadores múltiples incluidos.', 1, '2025-12-11 16:04:39', '2025-12-11 16:04:39');
+(58, 'Juego de limpiaparabrisas 24\"/16\"', 'Bosch', 'Universal', '2023', 17.50, 55, 2, '/img/autopartes/limpia-24-16-thumb.jpg', '/img/autopartes/limpia-24-16.jpg', 'Escobillas aerotwin, adaptadores múltiples incluidos.', 1, '2025-12-11 16:04:39', '2025-12-11 16:04:39'),
+(59, 'Faros De Luz delanteras', 'Toyota', 'Camry', '2025', 80.00, 12, 2, 'https://s.alicdn.com/@sc04/kf/H6b9760e3b2ad4b779dad41998e859d7ap/For-Camry-Led-Head-Light-2001-2006-Year-Black-Color-Sn-for-Toyota-for-toyota-corolla-2005-Headlight.png_300x300.jpg', 'https://scdn.autoersatzteile.de/catalog/categories/513x196/27.png', 'faro de luz delante de toyota camry 2020', 0, '2025-12-15 03:07:25', '2025-12-15 03:08:19'),
+(60, 'Frenos ventilado 28mm', 'Honda', 'Civic', '2025', 300.00, 12, 7, 'https://scdn.autodoc.de/catalog/categories/600x600/10106.png', 'https://shop.ksracing.es/282-large_default/kit-frenos-yellow-speed-civic-fn2.jpg', 'Frenos ventilados de honda civic type r', 1, '2025-12-15 03:31:17', '2025-12-15 03:31:17');
 
 -- --------------------------------------------------------
 
@@ -266,9 +268,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password`, `rol_id`, `estado`, `fecha_creacion`, `ultima_sesion`) VALUES
-(1, 'Juan botacio', 'botaciojuan3@gmail.com', '$2y$10$SiI2XXU9zP8pnT9./vEJ0uVM4z887cbCMLzqVJLQASV02O/z1Mhxy', 1, 1, '2025-12-11 00:52:18', '2025-12-15 02:16:14'),
+(1, 'Juan botacio', 'botaciojuan3@gmail.com', '$2y$10$SiI2XXU9zP8pnT9./vEJ0uVM4z887cbCMLzqVJLQASV02O/z1Mhxy', 1, 1, '2025-12-11 00:52:18', '2025-12-15 03:27:18'),
 (2, 'Danna Dawkins', 'danna@operador.com', '$2y$10$Xvl.lJoqyTPWQ0kyer2R.ed.gr5lmr.5CB3niKGt/UmfRqOqFD8j.', 2, 1, '2025-12-11 07:25:43', '2025-12-12 14:33:49'),
-(5, 'Daniella De Leon', 'Daniella@gmail.com', '$2y$10$fszq4Pp7BwhLv3ZOThaifONbxLaFKRCeFo68Z.UyOKP..jYiwaQUy', 3, 1, '2025-12-11 16:06:25', '2025-12-12 13:26:19');
+(5, 'Daniella De Leon', 'Daniella@gmail.com', '$2y$10$fszq4Pp7BwhLv3ZOThaifONbxLaFKRCeFo68Z.UyOKP..jYiwaQUy', 3, 0, '2025-12-11 16:06:25', '2025-12-12 13:26:19');
 
 -- --------------------------------------------------------
 
@@ -488,7 +490,7 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `autopartes`
 --
 ALTER TABLE `autopartes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT de la tabla `carrito`
